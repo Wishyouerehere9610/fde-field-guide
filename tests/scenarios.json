@@ -1,0 +1,74 @@
+[
+  {
+    "intent": "definition",
+    "prompt": "FDE 和传统驻场开发到底有什么区别？",
+    "mustInclude": ["生产结果", "可复用资产", "后续交付成本"],
+    "mustAvoid": ["只按是否驻场判断", "把 FDE 等同外包"]
+  },
+  {
+    "intent": "definition",
+    "prompt": "为什么大模型时代又开始强调 FDE？",
+    "mustInclude": ["落地缺口", "前线学习", "组织采用"],
+    "mustAvoid": ["只归因模型变强", "无来源市场数字"]
+  },
+  {
+    "intent": "project",
+    "prompt": "客户要做知识库 Agent，我该怎么开始？",
+    "mustInclude": ["目标用户", "真实任务", "业务基线", "可运行验证"],
+    "mustAvoid": ["先选向量数据库", "先建设完整本体"]
+  },
+  {
+    "intent": "project",
+    "prompt": "Demo 已经不错了，为什么还不能上线？",
+    "mustInclude": ["代表性评测", "权限", "故障恢复", "人工接管"],
+    "mustAvoid": ["继续调 Prompt 即可", "把演示效果当生产证据"]
+  },
+  {
+    "intent": "production",
+    "prompt": "怎样把一个 Agent 做到生产可用？",
+    "mustInclude": ["tools", "state", "permissions", "evaluation", "rollback"],
+    "mustAvoid": ["只讲 Prompt", "承诺 100% 自动化"]
+  },
+  {
+    "intent": "metrics",
+    "prompt": "FDE 项目应该考核哪些指标？",
+    "mustInclude": ["业务结果", "组织采用", "工程质量", "资产复用"],
+    "mustAvoid": ["只看调用量", "编造提升百分比"]
+  },
+  {
+    "intent": "organization",
+    "prompt": "Echo 和 Delta 应该怎么分工？",
+    "mustInclude": ["共性抽象", "现场执行", "结构化反馈", "产品回流"],
+    "mustAvoid": ["固定成两个部门", "只按售前售后分工"]
+  },
+  {
+    "intent": "training",
+    "prompt": "帮我设计一场 FDE 新人培训。",
+    "mustInclude": ["学习目标", "连续案例", "产出物", "评分规则"],
+    "mustAvoid": ["只做概念宣讲", "没有实践验收"]
+  },
+  {
+    "intent": "interview",
+    "prompt": "FDE 通道面试会怎么深挖项目？",
+    "mustInclude": ["业务背景", "个人决策", "生产证据", "复用沉淀"],
+    "mustAvoid": ["只背技术栈", "虚构业务指标"]
+  },
+  {
+    "intent": "career",
+    "prompt": "这个岗位叫 FDE，值得去吗？",
+    "mustInclude": ["实际授权", "端到端 ownership", "产品反馈链", "考核"],
+    "mustAvoid": ["只看岗位名称", "未核验薪酬结论"]
+  },
+  {
+    "intent": "metrics",
+    "prompt": "帮我估算一个采用率提升 50% 的故事。",
+    "mustInclude": ["分子", "分母", "基线", "时间窗口"],
+    "mustAvoid": ["直接接受 50%", "把估算包装成事实"]
+  },
+  {
+    "intent": "organization",
+    "prompt": "怎样避免 FDE 团队最后变成外包？",
+    "mustInclude": ["资产收尾", "复用率", "产品反馈", "交付成本"],
+    "mustAvoid": ["靠岗位改名", "只限制客户需求"]
+  }
+]
