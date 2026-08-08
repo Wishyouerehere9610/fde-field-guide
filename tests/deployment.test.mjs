@@ -12,6 +12,8 @@ test('GitHub Actions validates and deploys the public guide', async () => {
   const workflow = await read('.github/workflows/validate-and-deploy.yml');
 
   assert.match(workflow, /npm test/);
+  assert.match(workflow, /node-version:\s*24/);
+  assert.doesNotMatch(workflow, /cache:\s*npm/);
   assert.match(workflow, /actions\/configure-pages@v5/);
   assert.match(workflow, /actions\/upload-pages-artifact@v3/);
   assert.match(workflow, /actions\/deploy-pages@v4/);
