@@ -1,0 +1,617 @@
+{
+  "meta": {
+    "title": "FDE Field Guide Ontology",
+    "version": "1.0.0",
+    "language": "zh-CN",
+    "updated": "2026-08-08",
+    "sourcePolicy": "Source findings, engineering judgments, and claims needing verification must remain distinguishable."
+  },
+  "nodes": [
+    {
+      "id": "principle-frontline-learning",
+      "type": "principle",
+      "name": "前线学习",
+      "nameEn": "Frontline learning",
+      "definition": "交付和学习同时发生，客户现场暴露的问题必须回流为下一次部署可复用的能力。",
+      "sourceRefs": ["report:p14-17"]
+    },
+    {
+      "id": "principle-80-95-99",
+      "type": "principle",
+      "name": "80/95/99 规律",
+      "nameEn": "80/95/99 rule",
+      "definition": "原型覆盖常见路径并不等于生产可用，后续精度来自真实数据、评测、治理和人工兜底。",
+      "sourceRefs": ["report:p9-10"]
+    },
+    {
+      "id": "principle-sedimentation-first",
+      "type": "principle",
+      "name": "沉淀优先",
+      "nameEn": "Sedimentation first",
+      "definition": "项目结束前明确哪些经验进入 Skill、连接器、评测集、模板、本体或产品基线。",
+      "sourceRefs": ["report:p4", "report:p16-17"]
+    },
+    {
+      "id": "principle-human-fallback",
+      "type": "principle",
+      "name": "人工兜底",
+      "nameEn": "Human fallback",
+      "definition": "高风险和低置信任务必须允许人工审核、接管、回滚和责任追溯，不能追求盲目的全自动。",
+      "sourceRefs": ["report:p10", "report:p28-30"]
+    },
+    {
+      "id": "principle-value-before-model",
+      "type": "principle",
+      "name": "业务价值先于模型能力",
+      "nameEn": "Value before model",
+      "definition": "先定义业务决策、流程变化和衡量口径，再选择模型、工具与工程方案。",
+      "sourceRefs": ["report:p8-10", "project:synthesis"]
+    },
+    {
+      "id": "principle-three-party-loop",
+      "type": "principle",
+      "name": "平台伙伴客户协同",
+      "nameEn": "Platform partner customer loop",
+      "definition": "原厂验证平台和标杆，伙伴复制与本地化，客户逐步形成自助构建和持续运营能力。",
+      "sourceRefs": ["report:p36", "report:p59-60"]
+    },
+
+    {
+      "id": "role-fde",
+      "type": "role",
+      "name": "前线部署工程师",
+      "nameEn": "Forward Deployed Engineer",
+      "definition": "深入客户现场，把模糊业务问题转为可运行结果，并把经验带回产品和知识资产。",
+      "sourceRefs": ["report:p8", "report:p14-17"]
+    },
+    {
+      "id": "role-echo",
+      "type": "role",
+      "name": "Echo 角色",
+      "nameEn": "Echo role",
+      "definition": "负责抽象行业共性、组织知识蒸馏、维护本体基线，并判断哪些反馈值得进入公共资产。",
+      "sourceRefs": ["report:p14-17", "report:p47-56"]
+    },
+    {
+      "id": "role-delta",
+      "type": "role",
+      "name": "Delta 角色",
+      "nameEn": "Delta role",
+      "definition": "负责客户前线的原型、集成、调优和上线，把现场差异转成可验证的工程反馈。",
+      "sourceRefs": ["report:p14-17", "report:p47-56"]
+    },
+    {
+      "id": "role-customer-sponsor",
+      "type": "role",
+      "name": "客户业务负责人",
+      "nameEn": "Customer sponsor",
+      "definition": "为项目提供业务授权、资源和考核牵引，对采用率和业务结果负责，而不只是审批预算。",
+      "sourceRefs": ["report:p28-30", "report:p38-40"]
+    },
+    {
+      "id": "role-platform-team",
+      "type": "role",
+      "name": "平台产品团队",
+      "nameEn": "Platform product team",
+      "definition": "吸收高频前线反馈，把单点解决方案升级为标准能力、接口、治理机制和开发工具。",
+      "sourceRefs": ["report:p14-17", "report:p32-36"]
+    },
+    {
+      "id": "role-ecosystem-partner",
+      "type": "role",
+      "name": "生态交付伙伴",
+      "nameEn": "Ecosystem delivery partner",
+      "definition": "基于标准工具和行业模板扩大覆盖，并承担本地化适配、培训和持续运营服务。",
+      "sourceRefs": ["report:p36", "report:p59-60"]
+    },
+
+    {
+      "id": "stage-discovery",
+      "type": "stage",
+      "name": "场景发现",
+      "nameEn": "Discovery",
+      "definition": "通过访谈和流程观察识别高价值问题、用户、约束、责任边界和可量化基线。",
+      "sourceRefs": ["report:p28-30", "report:p47-48"]
+    },
+    {
+      "id": "stage-runnable-demo",
+      "type": "stage",
+      "name": "可运行验证",
+      "nameEn": "Runnable demo",
+      "definition": "用真实或接近真实的数据跑通关键路径，提前暴露模型、数据、接口和采用风险。",
+      "sourceRefs": ["report:p9", "report:p28-30"]
+    },
+    {
+      "id": "stage-pilot",
+      "type": "stage",
+      "name": "受控试点",
+      "nameEn": "Controlled pilot",
+      "definition": "限定用户、数据和责任范围，在可回滚条件下验证效果、稳定性和流程适配。",
+      "sourceRefs": ["report:p28-30", "project:synthesis"]
+    },
+    {
+      "id": "stage-production",
+      "type": "stage",
+      "name": "生产上线",
+      "nameEn": "Production",
+      "definition": "完成权限、审计、监控、故障处理、人工接管和运行手册后进入真实业务。",
+      "sourceRefs": ["report:p10", "report:p28-30"]
+    },
+    {
+      "id": "stage-adoption",
+      "type": "stage",
+      "name": "组织采用",
+      "nameEn": "Adoption",
+      "definition": "把新能力嵌入岗位、流程和考核，通过培训、陪跑和运营形成稳定使用习惯。",
+      "sourceRefs": ["report:p10", "report:p33-35", "report:p38-39"]
+    },
+    {
+      "id": "stage-reuse",
+      "type": "stage",
+      "name": "沉淀复用",
+      "nameEn": "Reuse",
+      "definition": "复盘客户差异和共性，将验证过的知识资产用于同类客户并降低交付成本。",
+      "sourceRefs": ["report:p16-17", "report:p47-56"]
+    },
+
+    {
+      "id": "capability-business-discovery",
+      "type": "capability",
+      "name": "业务发现",
+      "nameEn": "Business discovery",
+      "definition": "从模糊诉求中定位真实用户、关键任务、失败成本、流程约束和价值基线。",
+      "sourceRefs": ["report:p28-30", "report:p69"]
+    },
+    {
+      "id": "capability-full-stack-delivery",
+      "type": "capability",
+      "name": "全栈交付",
+      "nameEn": "Full-stack delivery",
+      "definition": "能够完成前后端、模型调用、数据处理、部署和现场调试，而不依赖层层转交。",
+      "sourceRefs": ["report:p35", "report:p65-66", "report:p75"]
+    },
+    {
+      "id": "capability-system-integration",
+      "type": "capability",
+      "name": "系统集成",
+      "nameEn": "System integration",
+      "definition": "连接身份、权限、数据、业务系统和协作入口，并处理接口稳定性与版本变化。",
+      "sourceRefs": ["report:p8-10", "report:p28-30"]
+    },
+    {
+      "id": "capability-agent-engineering",
+      "type": "capability",
+      "name": "Agent 工程",
+      "nameEn": "Agent engineering",
+      "definition": "设计上下文、工具、状态、权限和多步骤编排，使 Agent 能完成受控业务任务。",
+      "sourceRefs": ["report:p25-26", "report:p79", "project:synthesis"]
+    },
+    {
+      "id": "capability-evaluation",
+      "type": "capability",
+      "name": "评测与调优",
+      "nameEn": "Evaluation and tuning",
+      "definition": "用真实样本、边界案例和业务口径持续评测，避免只凭演示体验判断效果。",
+      "sourceRefs": ["report:p9-10", "report:p28-30"]
+    },
+    {
+      "id": "capability-production-governance",
+      "type": "capability",
+      "name": "生产治理",
+      "nameEn": "Production governance",
+      "definition": "建立权限、审计、可观测、回滚、故障响应和人工接管等生产控制。",
+      "sourceRefs": ["report:p10", "report:p28-30"]
+    },
+    {
+      "id": "capability-change-management",
+      "type": "capability",
+      "name": "组织变革推动",
+      "nameEn": "Change management",
+      "definition": "推动管理层、业务和 IT 对齐目标，把使用责任写入流程、岗位和考核。",
+      "sourceRefs": ["report:p10", "report:p33-35", "report:p42-45"]
+    },
+    {
+      "id": "capability-knowledge-modeling",
+      "type": "capability",
+      "name": "业务知识建模",
+      "nameEn": "Business knowledge modeling",
+      "definition": "抽象实体、属性、关系、动作、状态和规则，让系统使用稳定的业务语义。",
+      "sourceRefs": ["report:p20-21", "report:p47-56"]
+    },
+    {
+      "id": "capability-stakeholder-communication",
+      "type": "capability",
+      "name": "关键人沟通",
+      "nameEn": "Stakeholder communication",
+      "definition": "用业务语言解释能力边界、风险和收益，并推动高层与一线形成共同决策。",
+      "sourceRefs": ["report:p33-35", "report:p42-45"]
+    },
+    {
+      "id": "capability-asset-productization",
+      "type": "capability",
+      "name": "资产产品化",
+      "nameEn": "Asset productization",
+      "definition": "判断现场经验是否具有跨客户价值，并将其整理、评审、版本化和维护。",
+      "sourceRefs": ["report:p14-17", "report:p47-56"]
+    },
+
+    {
+      "id": "deliverable-scenario-map",
+      "type": "deliverable",
+      "name": "场景地图",
+      "nameEn": "Scenario map",
+      "definition": "记录目标用户、任务链路、系统边界、风险、价值假设和优先级的发现成果。",
+      "sourceRefs": ["report:p28-30", "project:synthesis"]
+    },
+    {
+      "id": "deliverable-runnable-demo",
+      "type": "deliverable",
+      "name": "可运行 Demo",
+      "nameEn": "Runnable demo",
+      "definition": "用真实问题跑通关键路径并可现场操作的验证系统，不是仅供展示的静态原型。",
+      "sourceRefs": ["report:p9", "report:p28-30"]
+    },
+    {
+      "id": "deliverable-production-solution",
+      "type": "deliverable",
+      "name": "生产解决方案",
+      "nameEn": "Production solution",
+      "definition": "已完成系统集成、治理、监控和责任划分，能够承接真实业务流量的方案。",
+      "sourceRefs": ["report:p28-30", "report:p35-36"]
+    },
+    {
+      "id": "deliverable-evaluation-set",
+      "type": "deliverable",
+      "name": "业务评测集",
+      "nameEn": "Business evaluation set",
+      "definition": "覆盖常见路径、长尾问题、风险边界和历史坏例的可重复评测样本集合。",
+      "sourceRefs": ["report:p4", "report:p9-10", "project:synthesis"]
+    },
+    {
+      "id": "deliverable-runbook",
+      "type": "deliverable",
+      "name": "生产运行手册",
+      "nameEn": "Production runbook",
+      "definition": "说明监控、报警、故障分级、人工接管、回滚和责任人的日常运行文档。",
+      "sourceRefs": ["report:p28-30", "project:synthesis"]
+    },
+    {
+      "id": "deliverable-adoption-plan",
+      "type": "deliverable",
+      "name": "采用计划",
+      "nameEn": "Adoption plan",
+      "definition": "明确试点用户、培训、陪跑、岗位变化、运营节奏和使用率目标的执行计划。",
+      "sourceRefs": ["report:p33-35", "report:p38-39"]
+    },
+    {
+      "id": "deliverable-value-review",
+      "type": "deliverable",
+      "name": "价值复盘",
+      "nameEn": "Value review",
+      "definition": "对照基线汇总业务影响、技术表现、采用情况、风险事件和下一阶段决策。",
+      "sourceRefs": ["report:p29-30", "report:p39", "project:synthesis"]
+    },
+    {
+      "id": "deliverable-reusable-asset",
+      "type": "deliverable",
+      "name": "可复用资产包",
+      "nameEn": "Reusable asset package",
+      "definition": "项目收尾时提交的 Skill、连接器、模板、评测集、本体更新或产品需求组合。",
+      "sourceRefs": ["report:p16-17", "report:p47-56"]
+    },
+
+    {
+      "id": "metric-adoption-rate",
+      "type": "metric",
+      "name": "采用率",
+      "nameEn": "Adoption rate",
+      "definition": "目标用户在约定周期内实际使用新流程或 Agent 的比例，需要结合活跃频次解释。",
+      "sourceRefs": ["report:p29-30", "report:p39", "report:p44"]
+    },
+    {
+      "id": "metric-task-success-rate",
+      "type": "metric",
+      "name": "任务成功率",
+      "nameEn": "Task success rate",
+      "definition": "在业务验收口径下完整完成任务且不触发严重错误的样本比例。",
+      "sourceRefs": ["report:p9-10", "report:p58-59", "project:synthesis"]
+    },
+    {
+      "id": "metric-cycle-time",
+      "type": "metric",
+      "name": "流程周期",
+      "nameEn": "Cycle time",
+      "definition": "从任务进入到完成的端到端时间，用于判断 AI 是否真正减少等待和转交。",
+      "sourceRefs": ["report:p29", "report:p58-59", "project:synthesis"]
+    },
+    {
+      "id": "metric-human-review-rate",
+      "type": "metric",
+      "name": "人工复核率",
+      "nameEn": "Human review rate",
+      "definition": "需要人工判断、纠错或接管的任务比例，用于观察风险与自动化边界。",
+      "sourceRefs": ["report:p10", "report:p28-30", "project:synthesis"]
+    },
+    {
+      "id": "metric-production-reliability",
+      "type": "metric",
+      "name": "生产可靠性",
+      "nameEn": "Production reliability",
+      "definition": "结合可用性、故障率、恢复时间和异常处置完成度评估系统运行质量。",
+      "sourceRefs": ["report:p28-30", "report:p44", "project:synthesis"]
+    },
+    {
+      "id": "metric-expansion-rate",
+      "type": "metric",
+      "name": "场景扩展率",
+      "nameEn": "Expansion rate",
+      "definition": "首个场景稳定后进入同一业务链路或相邻部门的新场景比例。",
+      "sourceRefs": ["report:p39", "report:p44", "report:p58-59"]
+    },
+    {
+      "id": "metric-reuse-rate",
+      "type": "metric",
+      "name": "资产复用率",
+      "nameEn": "Asset reuse rate",
+      "definition": "新项目直接采用既有 Skill、连接器、模板或本体组件的程度。",
+      "sourceRefs": ["report:p44", "report:p47-56"]
+    },
+    {
+      "id": "metric-delivery-cost-reduction",
+      "type": "metric",
+      "name": "交付成本下降",
+      "nameEn": "Delivery cost reduction",
+      "definition": "相对从零定制，复用资产后节省的工时、上线周期和现场投入。",
+      "sourceRefs": ["report:p16", "report:p49-56"]
+    },
+
+    {
+      "id": "risk-demo-trap",
+      "type": "risk",
+      "name": "Demo 陷阱",
+      "nameEn": "Demo trap",
+      "definition": "原型效果被误当成生产能力，权限、长尾、稳定性和组织采用问题没有进入验收。",
+      "sourceRefs": ["report:p9-10", "report:p28-30"]
+    },
+    {
+      "id": "risk-outsourcing-drift",
+      "type": "risk",
+      "name": "外包化漂移",
+      "nameEn": "Outsourcing drift",
+      "definition": "团队持续响应一次性需求，却没有形成可复用资产、产品反馈和交付成本下降。",
+      "sourceRefs": ["report:p14-17", "report:p38-40"]
+    },
+    {
+      "id": "risk-missing-sponsor",
+      "type": "risk",
+      "name": "缺少业务负责人",
+      "nameEn": "Missing sponsor",
+      "definition": "项目只有技术联系人，没有人能调整流程、协调资源或承担采用结果。",
+      "sourceRefs": ["report:p28-30", "report:p38-39"]
+    },
+    {
+      "id": "risk-unsafe-automation",
+      "type": "risk",
+      "name": "不安全自动化",
+      "nameEn": "Unsafe automation",
+      "definition": "在高风险任务中缺少权限边界、审核、审计、回滚或人工接管。",
+      "sourceRefs": ["report:p10", "report:p28-30"]
+    },
+    {
+      "id": "risk-weak-feedback-loop",
+      "type": "risk",
+      "name": "反馈链断裂",
+      "nameEn": "Weak feedback loop",
+      "definition": "一线问题无法进入产品与知识基线，平台也无法反向降低后续项目成本。",
+      "sourceRefs": ["report:p14-17", "report:p22"]
+    },
+    {
+      "id": "risk-metric-theater",
+      "type": "risk",
+      "name": "指标表演",
+      "nameEn": "Metric theater",
+      "definition": "只展示模型分数、调用量或演示案例，没有业务基线、采用率和价值结果。",
+      "sourceRefs": ["report:p29-30", "report:p58-59", "project:synthesis"]
+    },
+    {
+      "id": "risk-knowledge-fragmentation",
+      "type": "risk",
+      "name": "知识碎片化",
+      "nameEn": "Knowledge fragmentation",
+      "definition": "行业规则散落在个人、文档和项目代码中，缺少可检索、可评审、可版本化的结构。",
+      "sourceRefs": ["report:p20-21", "report:p38"]
+    },
+    {
+      "id": "risk-overbuilt-ontology",
+      "type": "risk",
+      "name": "本体过度建设",
+      "nameEn": "Overbuilt ontology",
+      "definition": "在没有足够同类客户和复用证据时投入完整建模，维护成本超过实际收益。",
+      "sourceRefs": ["report:p17", "report:p25", "report:p56"]
+    },
+
+    {
+      "id": "asset-skill",
+      "type": "asset",
+      "name": "Skill",
+      "nameEn": "Skill",
+      "definition": "封装特定任务判断、工具使用、业务规则和输出要求的可复用能力单元。",
+      "sourceRefs": ["report:p16-17", "report:p25", "report:p79"]
+    },
+    {
+      "id": "asset-connector",
+      "type": "asset",
+      "name": "连接器",
+      "nameEn": "Connector",
+      "definition": "以稳定接口连接企业系统、数据源和协作入口，复用鉴权、映射和异常处理。",
+      "sourceRefs": ["report:p17", "report:p25", "report:p35-36"]
+    },
+    {
+      "id": "asset-ontology",
+      "type": "asset",
+      "name": "业务本体",
+      "nameEn": "Business ontology",
+      "definition": "定义业务对象、属性、关系、动作、状态和规则的稳定语义层。",
+      "sourceRefs": ["report:p20-21", "report:p24-26"]
+    },
+    {
+      "id": "asset-evaluation-suite",
+      "type": "asset",
+      "name": "评测套件",
+      "nameEn": "Evaluation suite",
+      "definition": "由样本、评分标准、回归检查和质量门禁组成的持续验证资产。",
+      "sourceRefs": ["report:p4", "report:p9-10", "project:synthesis"]
+    },
+    {
+      "id": "asset-industry-template",
+      "type": "asset",
+      "name": "行业模板",
+      "nameEn": "Industry template",
+      "definition": "针对高频行业场景预置流程、角色、字段、连接器和治理要求的组合。",
+      "sourceRefs": ["report:p4", "report:p25", "report:p36"]
+    },
+    {
+      "id": "asset-playbook",
+      "type": "asset",
+      "name": "交付 Playbook",
+      "nameEn": "Delivery playbook",
+      "definition": "记录发现、验证、上线、采用和复盘方法的可执行操作指南。",
+      "sourceRefs": ["report:p46-56", "project:synthesis"]
+    },
+    {
+      "id": "asset-product-capability",
+      "type": "asset",
+      "name": "产品能力",
+      "nameEn": "Product capability",
+      "definition": "由多次现场需求验证后进入平台主线、可被更多客户直接使用的标准功能。",
+      "sourceRefs": ["report:p14-17", "report:p32-36"]
+    },
+
+    {
+      "id": "system-agent-platform",
+      "type": "system",
+      "name": "Agent 平台",
+      "nameEn": "Agent platform",
+      "definition": "承载模型、上下文、工具、流程、运行时、评测和发布治理的开发与运行平台。",
+      "sourceRefs": ["report:p25-26", "report:p32-36"]
+    },
+    {
+      "id": "system-enterprise-systems",
+      "type": "system",
+      "name": "企业业务系统",
+      "nameEn": "Enterprise systems",
+      "definition": "CRM、ERP、OA、知识库和行业系统等真实业务数据与动作的来源。",
+      "sourceRefs": ["report:p8-10", "report:p20-21"]
+    },
+    {
+      "id": "system-model-layer",
+      "type": "system",
+      "name": "模型层",
+      "nameEn": "Model layer",
+      "definition": "提供生成、理解、推理和多模态能力，但不独自承担业务语义与流程责任。",
+      "sourceRefs": ["report:p8-10", "report:p20-21"]
+    },
+    {
+      "id": "system-observability",
+      "type": "system",
+      "name": "可观测系统",
+      "nameEn": "Observability system",
+      "definition": "记录请求、工具调用、质量、成本、延迟、错误和人工接管，支持运行追踪。",
+      "sourceRefs": ["report:p28-30", "project:synthesis"]
+    },
+    {
+      "id": "system-identity-permission",
+      "type": "system",
+      "name": "身份与权限系统",
+      "nameEn": "Identity and permission system",
+      "definition": "控制用户、Agent 和工具对数据与动作的访问范围，并提供审计依据。",
+      "sourceRefs": ["report:p10", "report:p28-30"]
+    }
+  ],
+  "relations": [
+    {"from": "role-fde", "to": "principle-frontline-learning", "type": "owns"},
+    {"from": "role-echo", "to": "capability-knowledge-modeling", "type": "owns"},
+    {"from": "role-echo", "to": "capability-asset-productization", "type": "owns"},
+    {"from": "role-delta", "to": "capability-full-stack-delivery", "type": "owns"},
+    {"from": "role-delta", "to": "capability-system-integration", "type": "owns"},
+    {"from": "role-customer-sponsor", "to": "capability-change-management", "type": "owns"},
+    {"from": "role-platform-team", "to": "asset-product-capability", "type": "owns"},
+    {"from": "role-ecosystem-partner", "to": "stage-reuse", "type": "owns"},
+
+    {"from": "stage-discovery", "to": "stage-runnable-demo", "type": "precedes"},
+    {"from": "stage-runnable-demo", "to": "stage-pilot", "type": "precedes"},
+    {"from": "stage-pilot", "to": "stage-production", "type": "precedes"},
+    {"from": "stage-production", "to": "stage-adoption", "type": "precedes"},
+    {"from": "stage-adoption", "to": "stage-reuse", "type": "precedes"},
+
+    {"from": "stage-discovery", "to": "deliverable-scenario-map", "type": "produces"},
+    {"from": "stage-runnable-demo", "to": "deliverable-runnable-demo", "type": "produces"},
+    {"from": "stage-pilot", "to": "deliverable-evaluation-set", "type": "produces"},
+    {"from": "stage-production", "to": "deliverable-production-solution", "type": "produces"},
+    {"from": "stage-production", "to": "deliverable-runbook", "type": "produces"},
+    {"from": "stage-adoption", "to": "deliverable-adoption-plan", "type": "produces"},
+    {"from": "stage-adoption", "to": "deliverable-value-review", "type": "produces"},
+    {"from": "stage-reuse", "to": "deliverable-reusable-asset", "type": "produces"},
+
+    {"from": "deliverable-reusable-asset", "to": "asset-skill", "type": "enables"},
+    {"from": "deliverable-reusable-asset", "to": "asset-connector", "type": "enables"},
+    {"from": "deliverable-reusable-asset", "to": "asset-ontology", "type": "enables"},
+    {"from": "deliverable-reusable-asset", "to": "asset-evaluation-suite", "type": "enables"},
+    {"from": "deliverable-reusable-asset", "to": "asset-industry-template", "type": "enables"},
+    {"from": "deliverable-reusable-asset", "to": "asset-playbook", "type": "enables"},
+    {"from": "deliverable-reusable-asset", "to": "asset-product-capability", "type": "enables"},
+
+    {"from": "asset-skill", "to": "stage-reuse", "type": "reused_in"},
+    {"from": "asset-connector", "to": "stage-reuse", "type": "reused_in"},
+    {"from": "asset-ontology", "to": "stage-reuse", "type": "reused_in"},
+    {"from": "asset-evaluation-suite", "to": "stage-reuse", "type": "reused_in"},
+    {"from": "asset-industry-template", "to": "stage-reuse", "type": "reused_in"},
+    {"from": "asset-playbook", "to": "stage-reuse", "type": "reused_in"},
+
+    {"from": "capability-business-discovery", "to": "deliverable-scenario-map", "type": "produces"},
+    {"from": "capability-full-stack-delivery", "to": "deliverable-runnable-demo", "type": "produces"},
+    {"from": "capability-evaluation", "to": "deliverable-evaluation-set", "type": "produces"},
+    {"from": "capability-production-governance", "to": "deliverable-runbook", "type": "produces"},
+    {"from": "capability-change-management", "to": "deliverable-adoption-plan", "type": "produces"},
+    {"from": "capability-asset-productization", "to": "deliverable-reusable-asset", "type": "produces"},
+
+    {"from": "deliverable-value-review", "to": "metric-adoption-rate", "type": "measured_by"},
+    {"from": "deliverable-value-review", "to": "metric-task-success-rate", "type": "measured_by"},
+    {"from": "deliverable-value-review", "to": "metric-cycle-time", "type": "measured_by"},
+    {"from": "deliverable-value-review", "to": "metric-expansion-rate", "type": "measured_by"},
+    {"from": "deliverable-production-solution", "to": "metric-production-reliability", "type": "measured_by"},
+    {"from": "deliverable-production-solution", "to": "metric-human-review-rate", "type": "measured_by"},
+    {"from": "stage-reuse", "to": "metric-reuse-rate", "type": "measured_by"},
+    {"from": "stage-reuse", "to": "metric-delivery-cost-reduction", "type": "measured_by"},
+
+    {"from": "principle-80-95-99", "to": "risk-demo-trap", "type": "mitigates"},
+    {"from": "principle-sedimentation-first", "to": "risk-outsourcing-drift", "type": "mitigates"},
+    {"from": "principle-human-fallback", "to": "risk-unsafe-automation", "type": "mitigates"},
+    {"from": "principle-frontline-learning", "to": "risk-weak-feedback-loop", "type": "mitigates"},
+    {"from": "principle-value-before-model", "to": "risk-metric-theater", "type": "mitigates"},
+    {"from": "capability-change-management", "to": "risk-missing-sponsor", "type": "mitigates"},
+    {"from": "capability-knowledge-modeling", "to": "risk-knowledge-fragmentation", "type": "mitigates"},
+    {"from": "metric-reuse-rate", "to": "risk-overbuilt-ontology", "type": "mitigates"},
+
+    {"from": "capability-agent-engineering", "to": "system-agent-platform", "type": "depends_on"},
+    {"from": "capability-system-integration", "to": "system-enterprise-systems", "type": "depends_on"},
+    {"from": "capability-agent-engineering", "to": "system-model-layer", "type": "depends_on"},
+    {"from": "capability-production-governance", "to": "system-observability", "type": "depends_on"},
+    {"from": "capability-production-governance", "to": "system-identity-permission", "type": "depends_on"},
+    {"from": "asset-skill", "to": "system-agent-platform", "type": "depends_on"},
+    {"from": "asset-connector", "to": "system-enterprise-systems", "type": "depends_on"},
+    {"from": "asset-ontology", "to": "system-enterprise-systems", "type": "depends_on"},
+
+    {"from": "role-delta", "to": "role-echo", "type": "feeds_back_to"},
+    {"from": "role-echo", "to": "role-platform-team", "type": "feeds_back_to"},
+    {"from": "role-platform-team", "to": "role-delta", "type": "feeds_back_to"},
+    {"from": "metric-task-success-rate", "to": "capability-evaluation", "type": "feeds_back_to"},
+    {"from": "metric-adoption-rate", "to": "capability-change-management", "type": "feeds_back_to"},
+    {"from": "metric-reuse-rate", "to": "capability-asset-productization", "type": "feeds_back_to"},
+
+    {"from": "principle-human-fallback", "to": "system-identity-permission", "type": "governs"},
+    {"from": "principle-value-before-model", "to": "stage-discovery", "type": "governs"},
+    {"from": "principle-sedimentation-first", "to": "stage-reuse", "type": "governs"},
+    {"from": "principle-three-party-loop", "to": "role-ecosystem-partner", "type": "governs"}
+  ]
+}
