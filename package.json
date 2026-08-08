@@ -1,0 +1,20 @@
+{
+  "name": "fde-field-guide",
+  "version": "1.0.0",
+  "description": "An open source field guide and Agent Skill for Forward Deployed Engineering.",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wishyouerehere9610/fde-field-guide.git"
+  },
+  "homepage": "https://wishyouerehere9610.github.io/fde-field-guide/",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
