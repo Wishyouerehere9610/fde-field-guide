@@ -1,6 +1,6 @@
-# FDE Field Guide
+# FDE Insight
 
-FDE Field Guide is an open source Agent Skill and learning site for Forward Deployed Engineering. It helps people answer practical questions about the role, delivery model, operating system, metrics, career path, and the line between FDE and conventional project delivery.
+FDE Insight is an open source Agent Skill and learning site for Forward Deployed Engineering. It helps people answer practical questions about the role, delivery model, operating system, metrics, career path, and the line between FDE and conventional project delivery.
 
 FDE is not staff augmentation. The useful test is what remains after a project: a production result for the customer, plus a reusable Skill, connector, evaluation set, template, ontology update, or product capability for the next deployment.
 
@@ -16,7 +16,7 @@ Install it for Codex:
 
 ```bash
 npx skills add Wishyouerehere9610/fde-field-guide \
-  --skill fde-field-guide \
+  --skill fde-insight \
   --agent codex \
   --global \
   --yes \

@@ -1,9 +1,9 @@
 ---
-name: fde-field-guide
+name: fde-insight
 description: Use when users ask about FDE or Forward Deployed Engineer roles, customer-facing AI delivery, training, interviews, career planning, project diagnosis, operating models, production Agent adoption, or reusable delivery assets.
 ---
 
-# FDE Field Guide
+# FDE Insight
 
 ## Core principle
 

@@ -13,7 +13,7 @@ test('Skill metadata is discoverable without summarizing the workflow', async ()
   const frontmatter = skill.match(/^---\n([\s\S]*?)\n---/u)?.[1] ?? '';
   const description = frontmatter.match(/^description:\s*(.+)$/mu)?.[1] ?? '';
 
-  assert.match(frontmatter, /^name: fde-field-guide$/mu);
+  assert.match(frontmatter, /^name: fde-insight$/mu);
   assert.match(description, /^Use when /);
   assert.match(description, /FDE|Forward Deployed Engineer/);
   assert.match(description, /training|interview|delivery|customer/i);

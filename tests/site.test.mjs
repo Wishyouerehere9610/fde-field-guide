@@ -31,6 +31,8 @@ test('site exposes the ontology and Skill installation', async () => {
   assert.match(html, /data-ontology-filter="asset"/);
   assert.match(html, /data-ontology-filter="risk"/);
   assert.match(html, /npx skills add Wishyouerehere9610\/fde-field-guide/);
+  assert.match(html, /--skill fde-insight/);
+  assert.match(html, /<title>FDE Insight<\/title>/);
   assert.match(html, /href="styles\.css"/);
   assert.match(html, /src="app\.js"/);
 });
