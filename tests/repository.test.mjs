@@ -14,12 +14,14 @@ test('repository publishes clear metadata and validation scripts', async () => {
   assert.equal(packageJson.name, 'fde-insight');
   assert.equal(packageJson.private, false);
   assert.equal(packageJson.scripts.test, 'node --test tests/*.test.mjs');
+  assert.equal(packageJson.repository.url, 'https://github.com/Wishyouerehere9610/fde-insight.git');
+  assert.equal(packageJson.homepage, 'https://wishyouerehere9610.github.io/fde-insight/');
 });
 
 test('README documents Skill installation and GitHub Pages', async () => {
   const readme = await read('README.md');
 
-  assert.match(readme, /npx skills add Wishyouerehere9610\/fde-field-guide/);
+  assert.match(readme, /npx skills add Wishyouerehere9610\/fde-insight/);
   assert.match(readme, /--skill fde-insight/);
   assert.match(readme, /^# FDE Insight$/mu);
   assert.match(readme, /GitHub Pages/);

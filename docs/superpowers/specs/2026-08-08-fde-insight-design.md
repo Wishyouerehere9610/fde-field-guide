@@ -1,4 +1,4 @@
-# FDE Field Guide design
+# FDE Insight design
 
 ## Purpose
 
@@ -9,7 +9,7 @@ The Tencent Research Institute report `FDE模式行业观察与实践` is a rese
 ## Repository shape
 
 - `SKILL.md` contains the trigger conditions, answer contract, routing rules, and non-negotiable evidence boundaries.
-- `knowledge/fde-ontology.json` is the canonical machine-readable knowledge graph.
+- `knowledge/fde-insight.schema.json` defines the domain contract and `knowledge/fde-insight.graph.json` is the canonical machine-readable knowledge graph.
 - `knowledge/*.md` contains concise human-readable references for concepts, lifecycle, roles, metrics, risks, and sources.
 - `playbooks/*.md` contains reusable response patterns for training, project diagnosis, interviews, and customer questions.
 - `tests/*.test.mjs` validates the ontology, Skill contract, source coverage, and public site.
@@ -64,4 +64,3 @@ The site is a compact technical field guide, not a marketing landing page.
 - Site tests validate metadata, accessibility landmarks, asset links, and forbidden copy patterns.
 - Browser checks cover desktop and mobile layouts, both color schemes, keyboard focus, and interactive ontology filtering.
 - GitHub Pages is considered delivered only after the deployment reports success and the public URL returns HTTP 200.
-

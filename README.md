@@ -9,13 +9,13 @@ FDE is not staff augmentation. The useful test is what remains after a project: 
 List the Skill before installing it:
 
 ```bash
-npx skills add Wishyouerehere9610/fde-field-guide --list --full-depth
+npx skills add Wishyouerehere9610/fde-insight --list --full-depth
 ```
 
 Install it for Codex:
 
 ```bash
-npx skills add Wishyouerehere9610/fde-field-guide \
+npx skills add Wishyouerehere9610/fde-insight \
   --skill fde-insight \
   --agent codex \
   --global \
@@ -29,12 +29,15 @@ The Skill activates for FDE role questions, project diagnosis, training design, 
 
 The public GitHub Pages site presents the same ontology used by the Skill:
 
-<https://wishyouerehere9610.github.io/fde-field-guide/>
+<https://wishyouerehere9610.github.io/fde-insight/>
 
 ## Repository map
 
 - `SKILL.md`: trigger conditions and answer contract
-- `knowledge/`: ontology and source-bounded reference material
+- `knowledge/fde-insight.schema.json`: domain classes, relation vocabulary, and evidence constraints
+- `knowledge/fde-insight.graph.json`: source-bounded entities and typed relations
+- `knowledge/report-analysis.json`: sanitized ALE extraction provenance and evidence bundles
+- `knowledge/`: supporting concepts and page-level source map
 - `playbooks/`: training, diagnosis, interview, and response patterns
 - `tests/`: structural and editorial validation
 - `index.html`, `styles.css`, `app.js`: public learning site

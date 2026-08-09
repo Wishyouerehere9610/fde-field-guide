@@ -10,9 +10,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Wishyouerehere9610/fde-field-guide.git"
+    "url": "https://github.com/Wishyouerehere9610/fde-insight.git"
   },
-  "homepage": "https://wishyouerehere9610.github.io/fde-field-guide/",
+  "homepage": "https://wishyouerehere9610.github.io/fde-insight/",
   "license": "MIT",
   "engines": {
     "node": ">=20"

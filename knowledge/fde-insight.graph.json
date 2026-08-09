@@ -1,10 +1,12 @@
 {
   "meta": {
     "title": "FDE Insight Ontology",
-    "version": "1.0.0",
+    "version": "2.0.0",
+    "schemaVersion": "1.0.0",
     "language": "zh-CN",
-    "updated": "2026-08-08",
-    "sourcePolicy": "Source findings, engineering judgments, and claims needing verification must remain distinguishable."
+    "updated": "2026-08-09",
+    "sourcePolicy": "Source findings, engineering judgments, and claims needing verification must remain distinguishable.",
+    "generatedFrom": "knowledge/report-analysis.json"
   },
   "nodes": [
     {
@@ -526,6 +528,318 @@
       "nameEn": "Identity and permission system",
       "definition": "控制用户、Agent 和工具对数据与动作的访问范围，并提供审计依据。",
       "sourceRefs": ["report:p10", "report:p28-30"]
+    },
+    {
+      "id": "principle-dual-distillation",
+      "type": "principle",
+      "name": "双向蒸馏",
+      "nameEn": "Bidirectional distillation",
+      "definition": "前线把客户差异提炼为结构化反馈，平台再把共性反馈固化为标准能力并返回现场验证。",
+      "sourceRefs": ["report:p14-17"]
+    },
+    {
+      "id": "principle-land-and-expand",
+      "type": "principle",
+      "name": "Land and Expand",
+      "nameEn": "Land and expand",
+      "definition": "先用一个高价值场景取得生产结果，再依靠采用证据、资产复用和客户信任扩展到更多流程。",
+      "sourceRefs": ["report:p28-40"]
+    },
+    {
+      "id": "principle-self-service-end-state",
+      "type": "principle",
+      "name": "客户逐步自助",
+      "nameEn": "Customer self-service end state",
+      "definition": "成熟的 FDE 模式应降低客户对持续驻场的依赖，让客户能够基于标准资产自行扩展和运营。",
+      "sourceRefs": ["report:p58-60"]
+    },
+    {
+      "id": "role-fdpm",
+      "type": "role",
+      "name": "前线部署产品经理",
+      "nameEn": "Forward Deployed Product Manager",
+      "definition": "负责场景取舍、价值假设、关键人协同与采用路径，与 FDE 共同把可运行结果推进到业务闭环。",
+      "sourceRefs": ["report:p28-30"]
+    },
+    {
+      "id": "role-management",
+      "type": "role",
+      "name": "管理层",
+      "nameEn": "Management",
+      "definition": "决定组织归属、预算、内部结算和跨团队优先级，并为长期知识沉淀承担制度责任。",
+      "sourceRefs": ["report:p42-45", "report:p47-56"]
+    },
+    {
+      "id": "role-hr",
+      "type": "role",
+      "name": "HR 与人才团队",
+      "nameEn": "HR and talent team",
+      "definition": "围绕复合能力设计招聘、项目制培养、认证与考核，避免用单一研发或销售指标评价 FDE。",
+      "sourceRefs": ["report:p42-45", "report:p47-56"]
+    },
+    {
+      "id": "role-customer-user",
+      "type": "role",
+      "name": "客户一线用户",
+      "nameEn": "Customer frontline user",
+      "definition": "在真实流程中使用方案、暴露长尾问题并反馈采用障碍，是评测集和流程改造的重要证据来源。",
+      "sourceRefs": ["report:p28-30", "report:p47-56"]
+    },
+    {
+      "id": "stage-cold-start",
+      "type": "stage",
+      "name": "冷启动",
+      "nameEn": "Cold start",
+      "definition": "Echo 团队从行业对象、流程和规则出发建立首版本体，同时明确首批可验证场景与扩展边界。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "stage-first-customer",
+      "type": "stage",
+      "name": "第一个客户",
+      "nameEn": "First customer",
+      "definition": "Delta 使用初版本体完成现场交付，记录缺口并通过反馈单把客户差异交回 Echo 评审。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "stage-early-reuse",
+      "type": "stage",
+      "name": "第二到第四个客户",
+      "nameEn": "Early reuse",
+      "definition": "团队开始验证同一资产在多个客户中的适用范围，并区分行业共性、客户差异和错误抽象。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "stage-scale-effect",
+      "type": "stage",
+      "name": "第五到第八个客户",
+      "nameEn": "Scale effect",
+      "definition": "可复用资产开始显著缩短交付周期，管理层据此观察边际成本、伙伴复制和资产覆盖率。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "stage-ontology-maturity",
+      "type": "stage",
+      "name": "本体成熟",
+      "nameEn": "Ontology maturity",
+      "definition": "团队从项目驱动转为产品化运营，前线主要验证例外、补充资产并帮助客户建立自助能力。",
+      "sourceRefs": ["report:p47-60"]
+    },
+    {
+      "id": "mechanism-echo-delta-pairing",
+      "type": "mechanism",
+      "name": "Echo 与 Delta 配对",
+      "nameEn": "Echo and Delta pairing",
+      "definition": "一方维护可复用基线，一方完成现场适配，两种责任通过结构化反馈持续校准，而非彼此替代。",
+      "sourceRefs": ["report:p14-17", "report:p47-56"]
+    },
+    {
+      "id": "mechanism-ontology-feedback-form",
+      "type": "mechanism",
+      "name": "本体反馈单",
+      "nameEn": "Ontology feedback form",
+      "definition": "用统一字段记录现场缺口、临时解法、适用范围、证据和建议归属，让经验进入可评审的资产流程。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "mechanism-internal-settlement",
+      "type": "mechanism",
+      "name": "内部结算",
+      "nameEn": "Internal settlement",
+      "definition": "通过成本抵扣或内部计价奖励高质量反馈与复用贡献，使前线团队有动力投入长期资产沉淀。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "mechanism-privacy-isolation",
+      "type": "mechanism",
+      "name": "数据隐私隔离",
+      "nameEn": "Data privacy isolation",
+      "definition": "只回流抽象后的业务模式、规则和测试结构，客户数据、身份信息与敏感实现留在授权边界内。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "mechanism-workshop-bootcamp",
+      "type": "mechanism",
+      "name": "工作营陪跑",
+      "nameEn": "Workshop and bootcamp",
+      "definition": "让客户团队围绕真实场景共同构建和验证，使能力转移、场景发现与首个可运行结果在同一过程发生。",
+      "sourceRefs": ["report:p32-36"]
+    },
+    {
+      "id": "mechanism-partner-replication",
+      "type": "mechanism",
+      "name": "伙伴复制",
+      "nameEn": "Partner replication",
+      "definition": "原厂用标杆项目和标准资产打样，伙伴承担本地化交付，平台通过认证、评测和反馈保持质量。",
+      "sourceRefs": ["report:p32-36", "report:p58-60"]
+    },
+    {
+      "id": "deliverable-ontology-baseline",
+      "type": "deliverable",
+      "name": "本体基线",
+      "nameEn": "Ontology baseline",
+      "definition": "描述行业对象、关系、动作、规则和扩展点的版本化基线，是后续客户适配和资产评审的共同语言。",
+      "sourceRefs": ["report:p19-26", "report:p47-56"]
+    },
+    {
+      "id": "deliverable-ontology-feedback-record",
+      "type": "deliverable",
+      "name": "本体反馈记录",
+      "nameEn": "Ontology feedback record",
+      "definition": "记录现场证据、现有基线缺口、临时方案、建议抽象和复用范围，供 Echo 决定是否进入公共版本。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "deliverable-privacy-boundary",
+      "type": "deliverable",
+      "name": "隐私边界说明",
+      "nameEn": "Privacy boundary specification",
+      "definition": "明确哪些数据只能留在客户侧、哪些模式可以抽象回流，以及脱敏、审计和授权的责任主体。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "deliverable-settlement-ledger",
+      "type": "deliverable",
+      "name": "复用结算记录",
+      "nameEn": "Reuse settlement ledger",
+      "definition": "记录资产贡献、采用、复用收益和成本抵扣，为团队激励、预算分配与规模效应评估提供依据。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "metric-time-to-production",
+      "type": "metric",
+      "name": "生产上线周期",
+      "nameEn": "Time to production",
+      "definition": "从场景确认到受控生产可用的自然日或工作日，必须固定起点、终点、排除项和统计窗口。",
+      "sourceRefs": ["report:p28-30", "report:p58-60", "project:synthesis"]
+    },
+    {
+      "id": "metric-asset-coverage",
+      "type": "metric",
+      "name": "资产覆盖率",
+      "nameEn": "Asset coverage",
+      "definition": "可由标准资产直接覆盖的交付任务数除以同类交付任务总数，用于观察本体和 Skill 的成熟度。",
+      "sourceRefs": ["report:p47-56", "project:synthesis"]
+    },
+    {
+      "id": "metric-marginal-delivery-cost",
+      "type": "metric",
+      "name": "边际交付成本",
+      "nameEn": "Marginal delivery cost",
+      "definition": "新增同类客户所需的人天、云资源和支持成本，用来验证沉淀资产是否真正产生规模效应。",
+      "sourceRefs": ["report:p14-17", "report:p47-56"]
+    },
+    {
+      "id": "metric-customer-self-service",
+      "type": "metric",
+      "name": "客户自助率",
+      "nameEn": "Customer self-service rate",
+      "definition": "由客户独立完成并达到验收标准的扩展任务数除以全部扩展任务数，反映能力转移效果。",
+      "sourceRefs": ["report:p58-60", "project:synthesis"]
+    },
+    {
+      "id": "risk-missing-ontology-layer",
+      "type": "risk",
+      "name": "本体层缺失",
+      "nameEn": "Missing ontology layer",
+      "definition": "业务对象、流程和规则没有统一表达时，项目反复从需求澄清和接口适配开始，经验无法复用。",
+      "sourceRefs": ["report:p19-26", "report:p28-40"]
+    },
+    {
+      "id": "risk-organizational-misalignment",
+      "type": "risk",
+      "name": "组织错配",
+      "nameEn": "Organizational misalignment",
+      "definition": "FDE 被单纯放入销售、外包或成本中心时，短期项目收入会压过产品反馈、客户采用和知识沉淀。",
+      "sourceRefs": ["report:p28-45"]
+    },
+    {
+      "id": "risk-margin-pressure",
+      "type": "risk",
+      "name": "利润率压力",
+      "nameEn": "Margin pressure",
+      "definition": "高密度专家投入若没有复用率提升和伙伴复制，会让每个新增客户都重复消耗相同交付成本。",
+      "sourceRefs": ["report:p28-40"]
+    },
+    {
+      "id": "risk-partner-quality",
+      "type": "risk",
+      "name": "伙伴交付质量",
+      "nameEn": "Partner delivery quality",
+      "definition": "生态扩张缺少认证、评测和反馈约束时，交付标准会分化，现场问题也难以回流平台。",
+      "sourceRefs": ["report:p32-36", "report:p58-60"]
+    },
+    {
+      "id": "risk-data-privacy-leak",
+      "type": "risk",
+      "name": "客户数据外溢",
+      "nameEn": "Customer data leakage",
+      "definition": "沉淀资产时若把客户原始数据、身份信息或专属逻辑带入公共版本，会破坏授权边界与客户信任。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "risk-stale-market-claim",
+      "type": "risk",
+      "name": "市场信息过期",
+      "nameEn": "Stale market claim",
+      "definition": "招聘数量、薪酬、产品能力和组织结构会持续变化，报告样本只能作为历史观察而非当前事实。",
+      "sourceRefs": ["report:p61-79", "needs-verification"]
+    },
+    {
+      "id": "asset-semantic-model",
+      "type": "asset",
+      "name": "业务语义模型",
+      "nameEn": "Business semantic model",
+      "definition": "用对象、关系、动作和规则表达业务世界，为模型、应用和系统连接提供统一的可执行语义。",
+      "sourceRefs": ["report:p19-26"]
+    },
+    {
+      "id": "asset-feedback-template",
+      "type": "asset",
+      "name": "反馈单模板",
+      "nameEn": "Feedback template",
+      "definition": "把前线经验转成固定字段和评审入口，减少依赖口头复盘并支持跨项目比较和版本管理。",
+      "sourceRefs": ["report:p47-56"]
+    },
+    {
+      "id": "asset-training-certification",
+      "type": "asset",
+      "name": "项目制培训与认证",
+      "nameEn": "Project training and certification",
+      "definition": "围绕真实项目、角色能力和交付证据设计训练与认证，避免只用课堂考试判断前线能力。",
+      "sourceRefs": ["report:p42-45"]
+    },
+    {
+      "id": "system-data-layer",
+      "type": "system",
+      "name": "数据层",
+      "nameEn": "Data layer",
+      "definition": "承载业务事实、历史记录和实时状态，为本体对象和上层应用提供可治理的数据来源。",
+      "sourceRefs": ["report:p19-26"]
+    },
+    {
+      "id": "system-ontology-layer",
+      "type": "system",
+      "name": "本体层",
+      "nameEn": "Ontology layer",
+      "definition": "把底层数据映射为业务对象、关系、动作和约束，连接客户语言、应用逻辑与模型能力。",
+      "sourceRefs": ["report:p19-26"]
+    },
+    {
+      "id": "system-application-layer",
+      "type": "system",
+      "name": "应用层",
+      "nameEn": "Application layer",
+      "definition": "面向具体用户和任务提供工作流、界面与自动化能力，并通过本体层读写业务对象和动作。",
+      "sourceRefs": ["report:p19-26"]
+    },
+    {
+      "id": "system-ai-tool-layer",
+      "type": "system",
+      "name": "AI 工具层",
+      "nameEn": "AI tool layer",
+      "definition": "通过 AI 编程、办公助手和 Agent 工具降低原型、接口适配、测试与文档等工程执行成本。",
+      "sourceRefs": ["report:p19-26", "report:p32-36"]
     }
   ],
   "relations": [
@@ -612,6 +926,68 @@
     {"from": "principle-human-fallback", "to": "system-identity-permission", "type": "governs"},
     {"from": "principle-value-before-model", "to": "stage-discovery", "type": "governs"},
     {"from": "principle-sedimentation-first", "to": "stage-reuse", "type": "governs"},
-    {"from": "principle-three-party-loop", "to": "role-ecosystem-partner", "type": "governs"}
+    {"from": "principle-three-party-loop", "to": "role-ecosystem-partner", "type": "governs"},
+
+    {"from": "role-fdpm", "to": "capability-business-discovery", "type": "owns"},
+    {"from": "role-fdpm", "to": "capability-change-management", "type": "owns"},
+    {"from": "role-management", "to": "mechanism-internal-settlement", "type": "owns"},
+    {"from": "role-hr", "to": "asset-training-certification", "type": "owns"},
+    {"from": "role-customer-user", "to": "deliverable-evaluation-set", "type": "feeds_back_to"},
+    {"from": "role-delta", "to": "mechanism-ontology-feedback-form", "type": "owns"},
+    {"from": "role-echo", "to": "deliverable-ontology-baseline", "type": "owns"},
+    {"from": "role-ecosystem-partner", "to": "mechanism-partner-replication", "type": "owns"},
+
+    {"from": "stage-cold-start", "to": "stage-first-customer", "type": "precedes"},
+    {"from": "stage-first-customer", "to": "stage-early-reuse", "type": "precedes"},
+    {"from": "stage-early-reuse", "to": "stage-scale-effect", "type": "precedes"},
+    {"from": "stage-scale-effect", "to": "stage-ontology-maturity", "type": "precedes"},
+    {"from": "stage-cold-start", "to": "deliverable-ontology-baseline", "type": "produces"},
+    {"from": "stage-first-customer", "to": "deliverable-ontology-feedback-record", "type": "produces"},
+    {"from": "stage-early-reuse", "to": "asset-feedback-template", "type": "produces"},
+    {"from": "stage-scale-effect", "to": "deliverable-settlement-ledger", "type": "produces"},
+    {"from": "stage-ontology-maturity", "to": "asset-industry-template", "type": "produces"},
+    {"from": "stage-ontology-maturity", "to": "metric-customer-self-service", "type": "measured_by"},
+
+    {"from": "principle-dual-distillation", "to": "mechanism-echo-delta-pairing", "type": "governs"},
+    {"from": "principle-land-and-expand", "to": "stage-runnable-demo", "type": "governs"},
+    {"from": "principle-land-and-expand", "to": "metric-expansion-rate", "type": "measured_by"},
+    {"from": "principle-self-service-end-state", "to": "metric-customer-self-service", "type": "measured_by"},
+    {"from": "principle-self-service-end-state", "to": "stage-ontology-maturity", "type": "governs"},
+
+    {"from": "mechanism-echo-delta-pairing", "to": "principle-dual-distillation", "type": "enables"},
+    {"from": "mechanism-ontology-feedback-form", "to": "deliverable-ontology-feedback-record", "type": "produces"},
+    {"from": "deliverable-ontology-feedback-record", "to": "role-echo", "type": "feeds_back_to"},
+    {"from": "mechanism-internal-settlement", "to": "risk-weak-feedback-loop", "type": "mitigates"},
+    {"from": "mechanism-internal-settlement", "to": "deliverable-settlement-ledger", "type": "produces"},
+    {"from": "mechanism-privacy-isolation", "to": "risk-data-privacy-leak", "type": "mitigates"},
+    {"from": "mechanism-privacy-isolation", "to": "deliverable-privacy-boundary", "type": "produces"},
+    {"from": "mechanism-workshop-bootcamp", "to": "stage-adoption", "type": "enables"},
+    {"from": "mechanism-workshop-bootcamp", "to": "asset-training-certification", "type": "produces"},
+    {"from": "mechanism-partner-replication", "to": "stage-reuse", "type": "enables"},
+    {"from": "mechanism-partner-replication", "to": "risk-partner-quality", "type": "mitigates"},
+
+    {"from": "deliverable-ontology-baseline", "to": "asset-semantic-model", "type": "enables"},
+    {"from": "asset-semantic-model", "to": "system-ontology-layer", "type": "reused_in"},
+    {"from": "asset-feedback-template", "to": "mechanism-ontology-feedback-form", "type": "reused_in"},
+    {"from": "deliverable-privacy-boundary", "to": "system-identity-permission", "type": "governs"},
+
+    {"from": "stage-production", "to": "metric-time-to-production", "type": "measured_by"},
+    {"from": "stage-reuse", "to": "metric-asset-coverage", "type": "measured_by"},
+    {"from": "stage-scale-effect", "to": "metric-marginal-delivery-cost", "type": "measured_by"},
+    {"from": "metric-asset-coverage", "to": "risk-missing-ontology-layer", "type": "mitigates"},
+    {"from": "metric-marginal-delivery-cost", "to": "risk-margin-pressure", "type": "mitigates"},
+
+    {"from": "system-data-layer", "to": "system-ontology-layer", "type": "enables"},
+    {"from": "system-ontology-layer", "to": "system-application-layer", "type": "enables"},
+    {"from": "system-model-layer", "to": "system-application-layer", "type": "enables"},
+    {"from": "system-ai-tool-layer", "to": "capability-full-stack-delivery", "type": "enables"},
+    {"from": "asset-skill", "to": "system-ontology-layer", "type": "depends_on"},
+    {"from": "asset-connector", "to": "system-data-layer", "type": "depends_on"},
+
+    {"from": "capability-knowledge-modeling", "to": "risk-missing-ontology-layer", "type": "mitigates"},
+    {"from": "principle-sedimentation-first", "to": "risk-margin-pressure", "type": "mitigates"},
+    {"from": "principle-three-party-loop", "to": "mechanism-partner-replication", "type": "governs"},
+    {"from": "mechanism-echo-delta-pairing", "to": "risk-organizational-misalignment", "type": "mitigates"},
+    {"from": "deliverable-value-review", "to": "risk-stale-market-claim", "type": "mitigates"}
   ]
 }

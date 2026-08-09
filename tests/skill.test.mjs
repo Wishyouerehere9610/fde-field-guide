@@ -24,7 +24,9 @@ test('Skill metadata is discoverable without summarizing the workflow', async ()
 test('Skill routes questions into shared knowledge and playbooks', async () => {
   const skill = await read('SKILL.md');
   const requiredReferences = [
-    'knowledge/fde-ontology.json',
+    'knowledge/fde-insight.schema.json',
+    'knowledge/fde-insight.graph.json',
+    'knowledge/report-analysis.json',
     'knowledge/concepts.md',
     'knowledge/lifecycle.md',
     'knowledge/roles-and-operating-model.md',

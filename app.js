@@ -9,6 +9,7 @@ const filterButtons = [...document.querySelectorAll('[data-ontology-filter]')];
 const typeLabels = {
   role: '角色',
   stage: '阶段',
+  mechanism: '机制',
   capability: '能力',
   deliverable: '交付物',
   metric: '指标',
@@ -21,6 +22,7 @@ const typeLabels = {
 const curatedOverview = [
   'role-fde',
   'principle-frontline-learning',
+  'principle-dual-distillation',
   'stage-discovery',
   'stage-runnable-demo',
   'stage-production',
@@ -188,7 +190,7 @@ function renderGraph() {
 }
 
 async function loadOntology() {
-  const response = await fetch('knowledge/fde-ontology.json');
+  const response = await fetch('knowledge/fde-insight.graph.json');
   if (!response.ok) throw new Error(`Ontology request failed: ${response.status}`);
   ontology = await response.json();
   renderGraph();
@@ -214,7 +216,7 @@ loadOntology().catch((error) => {
   const heading = document.createElement('h3');
   heading.textContent = '暂时无法读取本体';
   const message = document.createElement('p');
-  message.textContent = '请刷新页面，或直接在 GitHub 查看 knowledge/fde-ontology.json。';
+  message.textContent = '请刷新页面，或直接在 GitHub 查看 knowledge/fde-insight.graph.json。';
   detail.append(heading, message);
   console.error(error);
 });

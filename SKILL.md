@@ -13,14 +13,14 @@ FDE turns an uncertain customer problem into a production result and turns field
 
 | Question | Required references |
 | --- | --- |
-| Definition or comparison | `knowledge/concepts.md`, `knowledge/fde-ontology.json` |
+| Definition or comparison | `knowledge/concepts.md`, `knowledge/fde-insight.schema.json`, `knowledge/fde-insight.graph.json` |
 | Delivery or production | `knowledge/lifecycle.md`, `playbooks/answer-protocol.md` |
 | Team, role, or assessment | `knowledge/roles-and-operating-model.md` |
 | Metrics, value, or failure | `knowledge/metrics-and-risks.md` |
 | Training design | `playbooks/training.md` |
 | Project diagnosis | `playbooks/project-diagnosis.md` |
 | Interview or career | `playbooks/interview-and-career.md` |
-| Report claim or time-sensitive fact | `knowledge/source-map.md` |
+| Report claim or time-sensitive fact | `knowledge/source-map.md`, `knowledge/report-analysis.json` |
 
 ## Required answer contract
 

@@ -1,0 +1,42 @@
+{
+  "source": {
+    "title": "FDE模式行业观察与实践",
+    "publisher": "腾讯研究院",
+    "published": "2026-07",
+    "pages": 83,
+    "sha256": "ee912b6b0fa7a4555587a712bf84838c85c869d7c2d4833fc4f9c8c7b97866bc",
+    "redistributed": false
+  },
+  "extraction": {
+    "tool": "ALE CLI",
+    "version": "0.7.0",
+    "commandModes": ["parse", "parse --json"],
+    "status": "success",
+    "verifiedPages": 83,
+    "elements": {
+      "headings": 196,
+      "tables": 54,
+      "images": 41,
+      "pagesWithImages": 30,
+      "listItems": 80
+    },
+    "publicationPolicy": "Raw extraction, image URLs, signed parameters, and report text are excluded from the public repository."
+  },
+  "evidenceBundles": [
+    {"id": "report:p3-6", "pages": [3, 6], "topics": ["报告定位", "核心结论", "研究边界"]},
+    {"id": "report:p8-17", "pages": [8, 17], "topics": ["Demo 到生产", "80/95/99", "前线学习", "双向蒸馏"]},
+    {"id": "report:p19-26", "pages": [19, 26], "topics": ["Palantir", "本体三层", "Skill", "连接器", "AI 工具"]},
+    {"id": "report:p28-40", "pages": [28, 40], "topics": ["生产打法", "腾讯云实践", "Land and Expand", "落地风险"]},
+    {"id": "report:p42-45", "pages": [42, 45], "topics": ["能力模型", "组织归属", "考核", "培训"]},
+    {"id": "report:p47-56", "pages": [47, 56], "topics": ["五阶段操作手册", "反馈单", "内部结算", "隐私隔离"]},
+    {"id": "report:p58-60", "pages": [58, 60], "topics": ["未来角色", "生态协同", "自助化", "规模指标"]},
+    {"id": "report:p61-63", "pages": [61, 63], "topics": ["研究方法", "数据口径", "局限性", "术语"]},
+    {"id": "report:p64-79", "pages": [64, 79], "topics": ["招聘样本", "能力分布", "薪酬样本", "企业案例"]},
+    {"id": "report:p80-81", "pages": [80, 81], "topics": ["参考文献"]}
+  ],
+  "claimClasses": [
+    {"id": "source-finding", "description": "Directly grounded in a report page reference."},
+    {"id": "engineering-synthesis", "description": "A reusable engineering interpretation, marked project:synthesis."},
+    {"id": "needs-verification", "description": "A market, hiring, compensation, product, or policy claim that can drift."}
+  ]
+}

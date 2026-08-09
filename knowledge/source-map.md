@@ -6,6 +6,12 @@
 
 The supplied report is used as a research input. The original PDF is not redistributed because the supplied copy does not include an open source license.
 
+## ALE extraction record
+
+The 83-page source was parsed with ALE CLI 0.7.0 in Markdown and JSON modes. The successful parse covered all 83 pages and yielded 196 headings, 54 tables, 41 image elements across 30 pages, and 80 list items. `knowledge/report-analysis.json` records the sanitized extraction manifest.
+
+The raw ALE output is not published. It includes report text and time-limited image URLs that are unnecessary for the open source knowledge graph.
+
 ## Report coverage
 
 | Reference | Pages | Used for |

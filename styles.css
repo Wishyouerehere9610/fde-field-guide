@@ -419,6 +419,73 @@ button:active,
   font-size: 11px;
 }
 
+.evidence-band {
+  border-block: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.evidence-shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.15fr) minmax(360px, 1fr) auto;
+  gap: clamp(32px, 5vw, 76px);
+  align-items: center;
+  padding: 44px 0;
+}
+
+.evidence-copy .panel-label {
+  margin-bottom: 6px;
+}
+
+.evidence-copy h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.24;
+}
+
+.evidence-copy > p:last-child {
+  max-width: 54ch;
+  margin: 10px 0 0;
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+.evidence-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(64px, 1fr));
+  margin: 0;
+}
+
+.evidence-metrics div {
+  padding: 0 16px;
+  border-left: 1px solid var(--line);
+}
+
+.evidence-metrics dt {
+  font-size: 23px;
+  font-weight: 760;
+  line-height: 1.1;
+}
+
+.evidence-metrics dd {
+  margin: 5px 0 0;
+  color: var(--text-soft);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.evidence-links {
+  display: grid;
+  gap: 7px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.evidence-links a:hover {
+  color: var(--accent-strong);
+}
+
 .definition {
   padding: 128px 0 112px;
 }
@@ -874,6 +941,21 @@ button:active,
     max-width: 13ch;
   }
 
+  .evidence-shell {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .evidence-copy,
+  .evidence-links {
+    grid-column: 1 / -1;
+  }
+
+  .evidence-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+  }
+
   .operating,
   .install {
     grid-template-columns: 1fr;
@@ -956,6 +1038,27 @@ button:active,
 
   .ontology-visual {
     grid-template-columns: 1fr;
+  }
+
+  .evidence-shell {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 36px 0;
+  }
+
+  .evidence-copy,
+  .evidence-links {
+    grid-column: auto;
+  }
+
+  .evidence-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 0;
+  }
+
+  .evidence-metrics div:nth-child(odd) {
+    border-left: 0;
+    padding-left: 0;
   }
 
   #ontology-graph {

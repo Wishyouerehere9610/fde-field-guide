@@ -28,11 +28,15 @@ test('site exposes the ontology and Skill installation', async () => {
   assert.match(html, /id="ontology-graph"/);
   assert.match(html, /data-ontology-filter="role"/);
   assert.match(html, /data-ontology-filter="stage"/);
+  assert.match(html, /data-ontology-filter="mechanism"/);
   assert.match(html, /data-ontology-filter="asset"/);
   assert.match(html, /data-ontology-filter="risk"/);
-  assert.match(html, /npx skills add Wishyouerehere9610\/fde-field-guide/);
+  assert.match(html, /npx skills add Wishyouerehere9610\/fde-insight/);
   assert.match(html, /--skill fde-insight/);
   assert.match(html, /<title>FDE Insight<\/title>/);
+  assert.match(html, /id="evidence-heading"/);
+  assert.match(html, /knowledge\/fde-insight\.schema\.json/);
+  assert.match(html, /knowledge\/report-analysis\.json/);
   assert.match(html, /href="styles\.css"/);
   assert.match(html, /src="app\.js"/);
 });
@@ -51,7 +55,7 @@ test('styles support responsive layout, focus, themes, and reduced motion', asyn
 test('ontology explorer loads shared data and handles failure', async () => {
   const script = await read('app.js');
 
-  assert.match(script, /knowledge\/fde-ontology\.json/);
+  assert.match(script, /knowledge\/fde-insight\.graph\.json/);
   assert.match(script, /data-ontology-filter/);
   assert.match(script, /aria-pressed/);
   assert.match(script, /catch\s*\(/);

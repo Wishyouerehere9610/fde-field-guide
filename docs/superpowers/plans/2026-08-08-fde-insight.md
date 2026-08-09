@@ -1,4 +1,4 @@
-# FDE Field Guide implementation plan
+# FDE Insight implementation plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -29,7 +29,7 @@
 
 **Files:**
 - Create: `tests/ontology.test.mjs`
-- Create: `knowledge/fde-ontology.json`
+- Create: `knowledge/fde-insight.graph.json`
 - Create: `knowledge/concepts.md`
 - Create: `knowledge/lifecycle.md`
 - Create: `knowledge/roles-and-operating-model.md`
@@ -81,7 +81,7 @@
 
 - [ ] Add a workflow that runs `npm test`, uploads the repository as a Pages artifact, and deploys only from `main`.
 - [ ] Run local tests and inspect the final diff.
-- [ ] Commit the repository, create `Wishyouerehere9610/fde-field-guide` as public, and push `main`.
+- [ ] Commit the repository, create `Wishyouerehere9610/fde-insight` as public, and push `main`.
 - [ ] Enable GitHub Pages with GitHub Actions.
 - [ ] Verify the Actions run succeeds and the public site returns HTTP 200.
-- [ ] Verify `npx skills add Wishyouerehere9610/fde-field-guide --list --full-depth` discovers `fde-field-guide`.
+- [ ] Verify `npx skills add Wishyouerehere9610/fde-insight --list --full-depth` discovers `fde-insight`.

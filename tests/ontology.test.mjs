@@ -6,6 +6,7 @@ const root = new URL('../', import.meta.url);
 const allowedNodeTypes = new Set([
   'role',
   'stage',
+  'mechanism',
   'capability',
   'deliverable',
   'metric',
@@ -28,7 +29,7 @@ const allowedRelationTypes = new Set([
 ]);
 
 async function loadOntology() {
-  const content = await readFile(new URL('knowledge/fde-ontology.json', root), 'utf8');
+  const content = await readFile(new URL('knowledge/fde-insight.graph.json', root), 'utf8');
   return JSON.parse(content);
 }
 
@@ -36,8 +37,9 @@ test('ontology has broad, typed coverage', async () => {
   const ontology = await loadOntology();
   const seenTypes = new Set(ontology.nodes.map((node) => node.type));
 
-  assert.equal(ontology.meta.version, '1.0.0');
-  assert.ok(ontology.nodes.length >= 45, 'expected at least 45 knowledge nodes');
+  assert.equal(ontology.meta.version, '2.0.0');
+  assert.equal(ontology.meta.schemaVersion, '1.0.0');
+  assert.ok(ontology.nodes.length >= 95, 'expected at least 95 knowledge nodes');
   assert.deepEqual(seenTypes, allowedNodeTypes);
 });
 
@@ -59,7 +61,7 @@ test('relations use valid endpoints and explicit verbs', async () => {
   const ontology = await loadOntology();
   const ids = new Set(ontology.nodes.map((node) => node.id));
 
-  assert.ok(ontology.relations.length >= 50, 'expected a connected graph');
+  assert.ok(ontology.relations.length >= 120, 'expected a connected graph');
   for (const relation of ontology.relations) {
     assert.ok(ids.has(relation.from), `missing relation source: ${relation.from}`);
     assert.ok(ids.has(relation.to), `missing relation target: ${relation.to}`);
@@ -87,9 +89,33 @@ test('core FDE operating loop is represented', async () => {
     'metric-reuse-rate',
     'risk-demo-trap',
     'risk-outsourcing-drift',
+    'principle-dual-distillation',
+    'role-fdpm',
+    'mechanism-ontology-feedback-form',
+    'mechanism-internal-settlement',
+    'mechanism-privacy-isolation',
+    'stage-ontology-maturity',
+    'system-ontology-layer',
   ];
 
   for (const id of required) assert.ok(ids.has(id), `missing core node: ${id}`);
+});
+
+test('domain schema and ALE provenance are published', async () => {
+  const [schema, analysis] = await Promise.all([
+    readFile(new URL('knowledge/fde-insight.schema.json', root), 'utf8').then(JSON.parse),
+    readFile(new URL('knowledge/report-analysis.json', root), 'utf8').then(JSON.parse),
+  ]);
+
+  assert.equal(schema.$schema, 'https://json-schema.org/draft/2020-12/schema');
+  assert.ok(schema.$defs.nodeType.enum.includes('mechanism'));
+  assert.equal(analysis.extraction.tool, 'ALE CLI');
+  assert.equal(analysis.extraction.status, 'success');
+  assert.equal(analysis.extraction.verifiedPages, 83);
+  assert.equal(analysis.extraction.elements.headings, 196);
+  assert.equal(analysis.extraction.elements.tables, 54);
+  assert.equal(analysis.extraction.elements.images, 41);
+  assert.equal(analysis.source.redistributed, false);
 });
 
 test('source map states page evidence and publication limits', async () => {
@@ -99,5 +125,7 @@ test('source map states page evidence and publication limits', async () => {
   assert.match(sourceMap, /Pages 28-40/);
   assert.match(sourceMap, /Pages 47-60/);
   assert.match(sourceMap, /not redistributed/i);
+  assert.match(sourceMap, /ALE CLI/);
+  assert.match(sourceMap, /196 headings/);
   assert.match(sourceMap, /Needs current verification/);
 });
