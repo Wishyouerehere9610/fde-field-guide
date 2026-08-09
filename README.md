@@ -2,7 +2,7 @@
 
 FDE Insight 是一套面向中文用户的开源 Agent Skill 与学习站点，用于回答前线部署工程（FDE）相关问题。内容覆盖岗位理解、客户交付、生产化、组织采用、指标设计、职业准备和可复用资产建设。
 
-FDE 不是传统驻场外包。判断一项工作是否形成 FDE 闭环，要看客户是否拿到生产结果，以及项目结束后是否留下能被下一次交付直接复用的 Skill、连接器、评测集、模板、本体或产品能力。
+判断一项工作是否形成 FDE 闭环，要看客户是否拿到生产结果，以及项目结束后是否留下能被下一次交付直接复用的 Skill、连接器、评测集、模板、本体或产品能力。
 
 ## 在线查看
 
@@ -10,7 +10,6 @@ GitHub Pages 展示了与 Skill 共用的领域 Schema 和知识图谱：
 
 <https://wishyouerehere9610.github.io/fde-insight/>
 
-展示页采用冷白纸面、档案编号、宋体标题和单一钴蓝色锚点，视觉方法参考开源 Skill [GC Minimal Zine Poster](https://github.com/LiamGvchi/gc-minimal-zine-poster)，页面结构与交互由本仓库独立实现。
 
 ## 安装 Skill
 
