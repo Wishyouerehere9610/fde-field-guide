@@ -1,30 +1,17 @@
 # FDE Insight
 
-FDE Insight 是一套面向中文用户的开源 Agent Skill 与学习站点，用于回答前线部署工程（FDE）相关问题。内容覆盖岗位理解、客户交付、生产化、组织采用、指标设计、职业准备和可复用资产建设。
+FDE Insight 是一套的开源 Skill 与学习站点，用于回答前线部署工程（FDE）相关问题。内容覆盖岗位理解、客户交付、生产化、组织采用、指标设计、职业准备和可复用资产建设。
 
 判断一项工作是否形成 FDE 闭环，要看客户是否拿到生产结果，以及项目结束后是否留下能被下一次交付直接复用的 Skill、连接器、评测集、模板、本体或产品能力。
 
-## 在线查看
+## 可视化讲解
 
 Skill 共用的领域 Schema 和知识图谱：<https://wishyouerehere9610.github.io/fde-insight/>
 
 ## 安装 Skill
 
-先查看仓库中可发现的 Skill：
-
 ```bash
 npx skills add Wishyouerehere9610/fde-insight --list --full-depth
-```
-
-安装到 Codex：
-
-```bash
-npx skills add Wishyouerehere9610/fde-insight \
-  --skill fde-insight \
-  --agent codex \
-  --global \
-  --yes \
-  --full-depth
 ```
 
 Skill 适用于以下问题：
@@ -54,18 +41,3 @@ Skill 适用于以下问题：
 - **报告结论**：有明确的报告页码来源
 - **工程判断**：根据运行机制形成的建议，需要说明前提和取舍
 - **待核验事实**：招聘、薪酬、产品能力、组织结构和政策等可能变化的信息
-
-初始知识模型参考腾讯研究院《FDE模式行业观察与实践》。本仓库不包含原始 PDF，也不公开 ALE 原始解析结果。具体边界见 `NOTICE.md` 和 `knowledge/source-map.md`。
-
-## 本地开发
-
-```bash
-npm test
-python3 -m http.server 4173
-```
-
-启动后访问 <http://127.0.0.1:4173/>。
-
-## 许可
-
-软件代码采用 MIT License。仓库原创文字和本体内容采用 CC BY 4.0。第三方材料仍遵循各自的授权条款。
