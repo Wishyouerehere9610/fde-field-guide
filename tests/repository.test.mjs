@@ -25,10 +25,22 @@ test('README documents Skill installation and GitHub Pages', async () => {
   assert.match(readme, /--skill fde-insight/);
   assert.match(readme, /^# FDE Insight$/mu);
   assert.match(readme, /GitHub Pages/);
-  assert.match(readme, /FDE 不是传统驻场外包/);
+  assert.match(readme, /把客户现场的问题，变成可复用的产品能力/);
   assert.match(readme, /^## 安装 Skill$/mu);
   assert.match(readme, /^## 项目结构$/mu);
   assert.doesNotMatch(readme, /^## (Use|Browse|Repository|Evidence|Development|License)/mu);
+});
+
+test('README has a credible visual and information hierarchy', async () => {
+  const readme = await read('README.md');
+
+  assert.match(readme, /validate-and-deploy\.yml\/badge\.svg/);
+  assert.match(readme, /docs\/fde-insight-preview\.png/);
+  assert.match(readme, /可视化讲解/);
+  assert.match(readme, /^## 核心能力$/mu);
+  assert.match(readme, /^## 你可以直接问$/mu);
+  assert.match(readme, /\| 场景 \| 能回答什么 \| 主要资产 \|/);
+  assert.doesNotMatch(readme, /本地开发|127\.0\.0\.1|http\.server/);
 });
 
 test('source and licensing boundaries are explicit', async () => {
