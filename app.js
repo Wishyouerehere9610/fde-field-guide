@@ -287,7 +287,7 @@ function renderGraph() {
       y: position.y - nodeHeight / 2,
       width: nodeWidth,
       height: nodeHeight,
-      rx: 6,
+      rx: 2,
     }));
     addNodeLabel(group, node, position.x, position.y);
 

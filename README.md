@@ -10,6 +10,8 @@ GitHub Pages 展示了与 Skill 共用的领域 Schema 和知识图谱：
 
 <https://wishyouerehere9610.github.io/fde-insight/>
 
+展示页采用冷白纸面、档案编号、宋体标题和单一钴蓝色锚点，视觉方法参考开源 Skill [GC Minimal Zine Poster](https://github.com/LiamGvchi/gc-minimal-zine-poster)，页面结构与交互由本仓库独立实现。
+
 ## 安装 Skill
 
 先查看仓库中可发现的 Skill：

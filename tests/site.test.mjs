@@ -45,6 +45,23 @@ test('site exposes the ontology and Skill installation', async () => {
   assert.match(html, /src="app\.js"/);
 });
 
+test('site carries the minimal zine editorial system', async () => {
+  const [html, css] = await Promise.all([
+    read('index.html'),
+    read('styles.css'),
+  ]);
+
+  assert.match(html, /class="zine-meta"/);
+  assert.match(html, /档案编号 001/);
+  assert.match(html, /class="section-index"/);
+  assert.match(html, /知识图谱 · 研究档案/);
+  assert.match(css, /body::before/);
+  assert.match(css, /\.zine-meta/);
+  assert.match(css, /\.section-index/);
+  assert.match(css, /Songti SC/);
+  assert.match(css, /repeating-linear-gradient/);
+});
+
 test('styles support responsive layout, focus, themes, and reduced motion', async () => {
   const css = await read('styles.css');
 
