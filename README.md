@@ -6,9 +6,7 @@ FDE Insight 是一套面向中文用户的开源 Agent Skill 与学习站点，�
 
 ## 在线查看
 
-GitHub Pages 展示了与 Skill 共用的领域 Schema 和知识图谱：
-
-<https://wishyouerehere9610.github.io/fde-insight/>
+GitHub Pages 展示了与 Skill 共用的领域 Schema 和知识图谱：<https://wishyouerehere9610.github.io/fde-insight/>
 
 
 ## 安装 Skill
