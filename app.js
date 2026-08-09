@@ -19,6 +19,27 @@ const typeLabels = {
   principle: '原则',
 };
 
+const relationLabels = {
+  owns: '负责',
+  produces: '产出',
+  measured_by: '由此衡量',
+  mitigates: '缓解',
+  depends_on: '依赖',
+  feeds_back_to: '反馈至',
+  reused_in: '复用于',
+  precedes: '先于',
+  enables: '支持',
+  governs: '约束',
+};
+
+const overviewLanes = [
+  { label: '角色', types: ['role'] },
+  { label: '原则', types: ['principle'] },
+  { label: '交付阶段', types: ['stage'] },
+  { label: '资产与交付物', types: ['asset', 'deliverable'] },
+  { label: '指标与风险', types: ['metric', 'risk'] },
+];
+
 const curatedOverview = [
   'role-fde',
   'principle-frontline-learning',
@@ -48,8 +69,20 @@ function createSvgElement(tag, attributes = {}) {
   return element;
 }
 
+function formatSourceRef(sourceRef) {
+  if (sourceRef.startsWith('report:p')) {
+    return `报告第 ${sourceRef.replace('report:p', '')} 页`;
+  }
+  if (sourceRef === 'project:synthesis') return '工程归纳';
+  if (sourceRef === 'needs-verification') return '需重新核验';
+  return sourceRef;
+}
+
 function setDetail(node) {
   detail.replaceChildren();
+
+  const summary = document.createElement('div');
+  summary.className = 'detail-summary';
 
   const type = document.createElement('p');
   type.className = 'detail-type';
@@ -63,9 +96,40 @@ function setDetail(node) {
 
   const source = document.createElement('p');
   source.className = 'detail-source';
-  source.textContent = `来源：${node.sourceRefs.join('，')}`;
+  source.textContent = `来源：${node.sourceRefs.map(formatSourceRef).join('，')}`;
 
-  detail.append(type, heading, definition, source);
+  summary.append(type, heading, definition, source);
+
+  const relationPanel = document.createElement('div');
+  relationPanel.className = 'detail-relations';
+  const relations = ontology.relations.filter(
+    (relation) => relation.from === node.id || relation.to === node.id,
+  );
+
+  const relationHeading = document.createElement('h4');
+  relationHeading.textContent = `关联关系 ${relations.length}`;
+  const relationList = document.createElement('ul');
+  const nodeById = new Map(ontology.nodes.map((item) => [item.id, item]));
+
+  for (const relation of relations) {
+    const outgoing = relation.from === node.id;
+    const relatedNode = nodeById.get(outgoing ? relation.to : relation.from);
+    if (!relatedNode) continue;
+
+    const item = document.createElement('li');
+    const direction = document.createElement('span');
+    direction.textContent = outgoing ? '→' : '←';
+    const relationText = document.createElement('p');
+    relationText.textContent = outgoing
+      ? `${relationLabels[relation.type] ?? relation.type} · ${relatedNode.name}`
+      : `${relatedNode.name} · ${relationLabels[relation.type] ?? relation.type}`;
+    item.append(direction, relationText);
+    relationList.append(item);
+  }
+
+  relationPanel.append(relationHeading, relationList);
+
+  detail.append(summary, relationPanel);
 }
 
 function getVisibleNodes() {
@@ -78,41 +142,72 @@ function getVisibleNodes() {
 }
 
 function getPositions(nodes) {
-  const centerX = 380;
-  const centerY = 260;
   const positions = new Map();
-  const startIndex = activeFilter === 'all' ? 1 : 0;
 
-  if (activeFilter === 'all' && nodes.length > 0) {
-    positions.set(nodes[0].id, { x: centerX, y: centerY });
+  if (activeFilter === 'all') {
+    overviewLanes.forEach((lane, laneIndex) => {
+      const laneNodes = nodes.filter((node) => lane.types.includes(node.type));
+      const gap = 300 / Math.max(laneNodes.length, 1);
+      laneNodes.forEach((node, nodeIndex) => {
+        positions.set(node.id, {
+          x: 76 + laneIndex * 152,
+          y: 65 + gap / 2 + nodeIndex * gap,
+        });
+      });
+    });
+    return positions;
   }
 
-  const ringNodes = nodes.slice(startIndex);
-  ringNodes.forEach((node, index) => {
-    const angle = (Math.PI * 2 * index) / ringNodes.length - Math.PI / 2;
-    const radiusX = ringNodes.length > 10 ? 290 : 250;
-    const radiusY = ringNodes.length > 10 ? 190 : 170;
-    positions.set(node.id, {
-      x: centerX + Math.cos(angle) * radiusX,
-      y: centerY + Math.sin(angle) * radiusY,
+  const columns = 4;
+  const rowCount = Math.ceil(nodes.length / columns);
+  for (let row = 0; row < rowCount; row += 1) {
+    const rowNodes = nodes.slice(row * columns, (row + 1) * columns);
+    const startX = 380 - ((rowNodes.length - 1) * 190) / 2;
+    rowNodes.forEach((node, column) => {
+      positions.set(node.id, {
+        x: startX + column * 190,
+        y: 74 + row * 98,
+      });
     });
-  });
-
+  }
   return positions;
+}
+
+function splitLabel(label) {
+  const characters = [...label];
+  if (characters.length <= 8) return [label];
+
+  const words = label.split(' ');
+  if (words.length > 1) {
+    let bestSplit = 1;
+    let smallestDifference = Number.POSITIVE_INFINITY;
+    for (let index = 1; index < words.length; index += 1) {
+      const firstLength = [...words.slice(0, index).join(' ')].length;
+      const secondLength = [...words.slice(index).join(' ')].length;
+      const difference = Math.abs(firstLength - secondLength);
+      if (difference < smallestDifference) {
+        smallestDifference = difference;
+        bestSplit = index;
+      }
+    }
+    return [words.slice(0, bestSplit).join(' '), words.slice(bestSplit).join(' ')];
+  }
+
+  const splitAt = Math.ceil(characters.length / 2);
+  return [characters.slice(0, splitAt).join(''), characters.slice(splitAt).join('')];
 }
 
 function addNodeLabel(group, node, x, y) {
   const label = createSvgElement('text', { x, y: y + 5 });
-  const characters = [...node.name];
+  const lines = splitLabel(node.name);
 
-  if (characters.length <= 7) {
-    label.textContent = node.name;
+  if (lines.length === 1) {
+    label.textContent = lines[0];
   } else {
-    const splitAt = Math.ceil(characters.length / 2);
-    const firstLine = createSvgElement('tspan', { x, dy: -6 });
-    const secondLine = createSvgElement('tspan', { x, dy: 16 });
-    firstLine.textContent = characters.slice(0, splitAt).join('');
-    secondLine.textContent = characters.slice(splitAt).join('');
+    const firstLine = createSvgElement('tspan', { x, dy: -7 });
+    const secondLine = createSvgElement('tspan', { x, dy: 15 });
+    firstLine.textContent = lines[0];
+    secondLine.textContent = lines[1];
     label.append(firstLine, secondLine);
   }
 
@@ -123,18 +218,41 @@ function renderGraph() {
   const nodes = getVisibleNodes();
   const nodeIds = new Set(nodes.map((node) => node.id));
   const positions = getPositions(nodes);
+  const nodeWidth = activeFilter === 'all' ? 132 : 166;
+  const nodeHeight = 48;
+  const graphHeight = activeFilter === 'all'
+    ? 430
+    : Math.max(230, 126 + (Math.ceil(nodes.length / 4) - 1) * 98);
   const description = graph.querySelector('desc')?.textContent ?? '';
   const title = graph.querySelector('title')?.textContent ?? '';
 
   graph.replaceChildren();
+  graph.setAttribute('viewBox', `0 0 760 ${graphHeight}`);
+  graph.style.aspectRatio = `760 / ${graphHeight}`;
   const graphTitle = createSvgElement('title', { id: 'graph-title' });
   graphTitle.textContent = title;
   const graphDescription = createSvgElement('desc', { id: 'graph-description' });
   graphDescription.textContent = description;
   graph.append(graphTitle, graphDescription);
 
+  if (activeFilter === 'all') {
+    overviewLanes.forEach((lane, index) => {
+      const label = createSvgElement('text', {
+        class: 'graph-lane-label',
+        x: 76 + index * 152,
+        y: 28,
+      });
+      label.textContent = lane.label;
+      graph.append(label);
+    });
+  }
+
   const related = ontology.relations.filter(
-    (relation) => nodeIds.has(relation.from) && nodeIds.has(relation.to),
+    (relation) => (
+      nodeIds.has(relation.from)
+      && nodeIds.has(relation.to)
+      && (relation.from === activeNodeId || relation.to === activeNodeId)
+    ),
   );
 
   for (const relation of related) {
@@ -142,7 +260,7 @@ function renderGraph() {
     const to = positions.get(relation.to);
     graph.append(
       createSvgElement('line', {
-        class: 'graph-edge',
+        class: 'graph-edge is-connected',
         x1: from.x,
         y1: from.y,
         x2: to.x,
@@ -153,24 +271,29 @@ function renderGraph() {
 
   for (const node of nodes) {
     const position = positions.get(node.id);
+    const isRelated = related.some(
+      (relation) => relation.from === node.id || relation.to === node.id,
+    );
     const group = createSvgElement('g', {
-      class: `graph-node${node.id === activeNodeId ? ' is-selected' : ''}`,
+      class: `graph-node${node.id === activeNodeId ? ' is-selected' : ''}${isRelated ? ' is-related' : ''}`,
       tabindex: 0,
       role: 'button',
       'aria-label': `${typeLabels[node.type]}：${node.name}`,
       'data-node-id': node.id,
     });
 
-    group.append(createSvgElement('circle', { cx: position.x, cy: position.y, r: 42 }));
+    group.append(createSvgElement('rect', {
+      x: position.x - nodeWidth / 2,
+      y: position.y - nodeHeight / 2,
+      width: nodeWidth,
+      height: nodeHeight,
+      rx: 6,
+    }));
     addNodeLabel(group, node, position.x, position.y);
 
     const selectNode = () => {
       activeNodeId = node.id;
-      setDetail(node);
-      graph.querySelectorAll('.graph-node').forEach((element) => {
-        element.classList.toggle('is-selected', element.dataset.nodeId === activeNodeId);
-      });
-      graphStatus.textContent = `已选择：${node.name}`;
+      renderGraph();
     };
 
     group.addEventListener('click', selectNode);
@@ -186,7 +309,10 @@ function renderGraph() {
   const selected = nodes.find((node) => node.id === activeNodeId) ?? nodes[0];
   activeNodeId = selected.id;
   setDetail(selected);
-  graphStatus.textContent = `${typeLabels[activeFilter] ?? '全景'}：${nodes.length} 个节点`;
+  const relationCount = ontology.relations.filter(
+    (relation) => relation.from === selected.id || relation.to === selected.id,
+  ).length;
+  graphStatus.textContent = `${typeLabels[activeFilter] ?? '全景'} · ${nodes.length} 个节点 · ${relationCount} 条关联`;
 }
 
 async function loadOntology() {
@@ -217,7 +343,10 @@ loadOntology().catch((error) => {
   heading.textContent = '暂时无法读取本体';
   const message = document.createElement('p');
   message.textContent = '请刷新页面，或直接在 GitHub 查看 knowledge/fde-insight.graph.json。';
-  detail.append(heading, message);
+  const summary = document.createElement('div');
+  summary.className = 'detail-summary';
+  summary.append(heading, message);
+  detail.append(summary);
   console.error(error);
 });
 

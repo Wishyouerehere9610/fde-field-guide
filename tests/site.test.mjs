@@ -37,6 +37,10 @@ test('site exposes the ontology and Skill installation', async () => {
   assert.match(html, /id="evidence-heading"/);
   assert.match(html, /knowledge\/fde-insight\.schema\.json/);
   assert.match(html, /knowledge\/report-analysis\.json/);
+  assert.match(html, /前线部署工程/);
+  assert.match(html, /ALE 解析证据/);
+  assert.match(html, /领域 Schema/);
+  assert.doesNotMatch(html, /Forward Deployed Engineering|ALE extraction record|Domain Schema|Knowledge Graph|Parse Manifest/);
   assert.match(html, /href="styles\.css"/);
   assert.match(html, /src="app\.js"/);
 });
@@ -49,6 +53,7 @@ test('styles support responsive layout, focus, themes, and reduced motion', asyn
   assert.match(css, /prefers-color-scheme:\s*dark/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /@media\s*\(max-width:\s*767px\)/);
+  assert.match(css, /\.graph-node rect/);
   assert.doesNotMatch(css, /#[0-9a-f]{6}[^\n]*#[0-9a-f]{6}[^\n]*#[0-9a-f]{6}[^\n]*#[0-9a-f]{6}/i);
 });
 
@@ -60,6 +65,10 @@ test('ontology explorer loads shared data and handles failure', async () => {
   assert.match(script, /aria-pressed/);
   assert.match(script, /catch\s*\(/);
   assert.match(script, /createElementNS/);
+  assert.match(script, /createSvgElement\('rect'/);
+  assert.match(script, /relationLabels/);
+  assert.match(script, /detail-relations/);
+  assert.doesNotMatch(script, /createSvgElement\('circle'/);
   assert.doesNotMatch(script, /window\.addEventListener\(['"]scroll/);
 });
 

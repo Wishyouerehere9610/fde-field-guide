@@ -1,48 +1,46 @@
-# Source map
+# 来源映射
 
-## Primary research input
+## 主要研究输入
 
-`FDE模式行业观察与实践`, Tencent Research Institute, July 2026, 83 pages.
+《FDE模式行业观察与实践》，腾讯研究院，2026 年 7 月，共 83 页。
 
-The supplied report is used as a research input. The original PDF is not redistributed because the supplied copy does not include an open source license.
+该报告用于建立初始知识模型。由于用户提供的副本没有附带开源许可，本仓库不分发原始 PDF。
 
-## ALE extraction record
+## ALE 解析记录
 
-The 83-page source was parsed with ALE CLI 0.7.0 in Markdown and JSON modes. The successful parse covered all 83 pages and yielded 196 headings, 54 tables, 41 image elements across 30 pages, and 80 list items. `knowledge/report-analysis.json` records the sanitized extraction manifest.
+83 页报告已使用 ALE CLI 0.7.0 的 Markdown 与 JSON 模式完成解析。解析结果覆盖全部 83 页，识别出 196 个标题、54 张表格、41 个图像元素、30 个含图页面和 80 个列表项。脱敏后的解析清单见 `knowledge/report-analysis.json`。
 
-The raw ALE output is not published. It includes report text and time-limited image URLs that are unnecessary for the open source knowledge graph.
+本仓库不公开 ALE 原始输出。原始结果包含报告正文和带时效签名的图片地址，这些内容不是开源知识图谱运行所必需的。
 
-## Report coverage
+## 报告覆盖
 
-| Reference | Pages | Used for |
+| 引用标识 | 页码 | 用途 |
 | --- | --- | --- |
-| `report:p3-6` | Pages 3-6 | Report scope, core findings, publication limits |
-| `report:p8-17` | Pages 8-17 | FDE definition, 80/95/99, frontline learning, reuse test |
-| `report:p19-26` | Pages 19-26 | Palantir history, ontology layers, Skill and connector relationships |
-| `report:p28-40` | Pages 28-40 | Demo to production, adoption, Tencent Cloud practices, failure modes |
-| `report:p42-45` | Pages 42-45 | Talent model, organization, incentives, performance dimensions |
-| `report:p47-56` | Pages 47-56 | Echo and Delta operating manual, asset feedback and reuse economics |
-| `report:p58-60` | Pages 58-60 | Future role split, ecosystem, measurement, partner model |
-| `report:p61-63` | Pages 61-63 | Research method, limitations, terminology |
-| `report:p64-79` | Pages 64-79 | Hiring sample, capability distribution, employer examples |
-| `report:p80-81` | Pages 80-81 | References listed by the report |
+| `report:p3-6` | 第 3-6 页 | 报告定位、核心结论、研究边界 |
+| `report:p8-17` | 第 8-17 页 | FDE 定义、80/95/99、前线学习、复用检验 |
+| `report:p19-26` | 第 19-26 页 | Palantir、本体层、Skill 与连接器关系 |
+| `report:p28-40` | 第 28-40 页 | Demo 到生产、组织采用、腾讯云实践、失败模式 |
+| `report:p42-45` | 第 42-45 页 | 能力模型、组织归属、激励与考核 |
+| `report:p47-56` | 第 47-56 页 | Echo 与 Delta 操作手册、反馈机制与复用经济性 |
+| `report:p58-60` | 第 58-60 页 | 未来角色、生态协同、指标与伙伴模式 |
+| `report:p61-63` | 第 61-63 页 | 研究方法、局限性与术语 |
+| `report:p64-79` | 第 64-79 页 | 招聘样本、能力分布、薪酬样本与企业案例 |
+| `report:p80-81` | 第 80-81 页 | 报告参考文献 |
 
-Pages 47-60 provide the continuous operating-manual and future-model evidence used by the delivery and reuse playbooks.
+第 47-60 页是交付、反馈、复用和未来运行模式的连续证据区间。
 
-## Evidence labels
+## 证据标签
 
-- `report:pXX`: supported by a page or page group in the report.
-- `project:synthesis`: an engineering synthesis created for this open source project.
-- `Needs current verification`: the claim may change and should be checked against a current primary source.
+- `report:pXX`：有报告页码支持。
+- `project:synthesis`：本项目根据运行机制形成的工程归纳。
+- `needs-verification`：事实可能变化，需要重新核验当前一手来源。
 
-## Needs current verification
+## 必须重新核验的内容
 
-Always verify these before presenting them as current facts:
+- 当前 FDE 岗位数量与增长率
+- 薪酬区间和职级映射
+- 产品能力与组织结构
+- 企业出差、编制和绩效政策
+- 法律、监管、标准和政府项目
 
-- Active FDE job counts and growth rates
-- Compensation ranges and level mapping
-- Current product capabilities and organization structures
-- Company-specific travel, staffing, and performance policies
-- Laws, regulations, standards, and government programs
-
-The report's own reference list is not a substitute for checking the current primary source.
+报告中的参考文献列表不能替代对当前一手来源的核验。

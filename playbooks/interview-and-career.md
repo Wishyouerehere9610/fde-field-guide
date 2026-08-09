@@ -1,56 +1,48 @@
-# FDE interview and career playbook
+# FDE 面试与职业准备
 
-## Map the role before preparing stories
+## 先拆岗位，再准备故事
 
-Separate the job description into five evidence areas:
+把 JD 拆成五类证据：
 
-- customer discovery and executive communication
-- full-stack AI delivery and system integration
-- production evaluation, governance, and operations
-- adoption and measurable business impact
-- reusable Skill, connector, template, or product feedback
+- 客户场景发现与高层沟通
+- 全栈 AI 交付与系统集成
+- 生产评测、治理与运行
+- 组织采用与可衡量业务结果
+- 可复用 Skill、连接器、模板或产品反馈
 
-For each area, use this structure:
+每一类都按以下结构准备：
 
-`role requirement -> candidate evidence -> gap -> direct wording`
+`岗位要求 -> 候选人证据 -> 缺口 -> 可直接说的话术`
 
-Do not inflate a project to match the title. If evidence is missing, state how you would close the gap.
+不要为了匹配岗位名称夸大项目。证据缺失时，说明你会如何补齐。
 
-## Experience story
+## 经历故事
 
-Use a compact sequence:
+使用紧凑的七步结构：
 
-1. Customer and business context
-2. Why the problem was difficult
-3. Your decision and ownership
-4. What you built and how it entered production
-5. Adoption or business evidence
-6. What became reusable
-7. What you would change next time
+1. 客户与业务背景
+2. 问题为什么难
+3. 你的判断和责任边界
+4. 你做了什么，如何进入真实流程
+5. 采用或业务证据
+6. 项目留下了什么可复用资产
+7. 如果重做一次会改变什么
 
-The interviewer will often probe handoffs, failed assumptions, tradeoffs, incidents, and exact ownership. Prepare those details before polishing the headline.
+面试官通常会追问交接、失败假设、取舍、线上事故和具体所有权。先准备这些细节，再打磨标题。
 
-## Common questions
+## 常见问题
 
-- How do you distinguish a good AI scenario from a demo request?
-- What blocks the move from 80 to 95 and from 95 to production?
-- How do you define an evaluation set for an open-ended task?
-- How do you handle permissions, audit, rollback, and human takeover?
-- Tell me about a time customer behavior changed after launch.
-- What did your project leave for the next customer?
-- When should a request stay customer-specific instead of entering the product?
-- How do you disagree with an executive sponsor or product team?
+- 如何区分高价值 AI 场景和单纯 Demo 需求？
+- 从 80 到 95、从 95 到生产分别卡在哪里？
+- 开放式任务的评测集如何设计？
+- 如何处理权限、审计、回滚和人工接管？
+- 上线后如何推动客户改变行为？
+- 项目为下一个客户留下了什么？
+- 哪些需求应保留为客户配置，哪些应进入产品？
+- 如何与客户高层或内部产品团队表达不同意见？
 
-## Career evaluation
+## 职业判断
 
-Evaluate an FDE role on actual authority and operating design, not title alone:
+评估 FDE 岗位时，不要只看名称。确认客户类型、生产责任、现场强度、产品反馈渠道、可复用资产归属、考核指标和晋升路径。
 
-- access to customer decision makers and real systems
-- ownership from discovery through adoption
-- relationship with product and platform teams
-- ability to publish reusable assets internally
-- metrics that balance customer result, engineering quality, and reuse
-- travel and on-site expectations
-- support model after production launch
-
-Compensation, level mapping, team structure, and travel policy are time-sensitive. Mark them as **Needs verification** and use current primary evidence.
+真正的 FDE 岗位应让你同时积累业务判断、工程能力和产品反馈。长期只做配置、汇报和人力补位的岗位，很难形成同样的成长曲线。

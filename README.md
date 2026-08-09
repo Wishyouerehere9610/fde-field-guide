@@ -1,18 +1,24 @@
 # FDE Insight
 
-FDE Insight is an open source Agent Skill and learning site for Forward Deployed Engineering. It helps people answer practical questions about the role, delivery model, operating system, metrics, career path, and the line between FDE and conventional project delivery.
+FDE Insight 是一套面向中文用户的开源 Agent Skill 与学习站点，用于回答前线部署工程（FDE）相关问题。内容覆盖岗位理解、客户交付、生产化、组织采用、指标设计、职业准备和可复用资产建设。
 
-FDE is not staff augmentation. The useful test is what remains after a project: a production result for the customer, plus a reusable Skill, connector, evaluation set, template, ontology update, or product capability for the next deployment.
+FDE 不是传统驻场外包。判断一项工作是否形成 FDE 闭环，要看客户是否拿到生产结果，以及项目结束后是否留下能被下一次交付直接复用的 Skill、连接器、评测集、模板、本体或产品能力。
 
-## Use the Skill
+## 在线查看
 
-List the Skill before installing it:
+GitHub Pages 展示了与 Skill 共用的领域 Schema 和知识图谱：
+
+<https://wishyouerehere9610.github.io/fde-insight/>
+
+## 安装 Skill
+
+先查看仓库中可发现的 Skill：
 
 ```bash
 npx skills add Wishyouerehere9610/fde-insight --list --full-depth
 ```
 
-Install it for Codex:
+安装到 Codex：
 
 ```bash
 npx skills add Wishyouerehere9610/fde-insight \
@@ -23,44 +29,45 @@ npx skills add Wishyouerehere9610/fde-insight \
   --full-depth
 ```
 
-The Skill activates for FDE role questions, project diagnosis, training design, interviews, operating-model decisions, delivery metrics, Agent productionization, and reusable asset design.
+Skill 适用于以下问题：
 
-## Browse the guide
+- FDE 岗位、职责、能力模型和职业发展
+- 客户项目诊断、场景选择与生产化方案
+- 培训课程、案例练习和评分标准设计
+- 交付指标、采用率、复用率和业务价值衡量
+- Agent 工程、系统集成、权限、评测与发布治理
+- Skill、连接器、本体、评测集和行业模板沉淀
 
-The public GitHub Pages site presents the same ontology used by the Skill:
+## 项目结构
 
-<https://wishyouerehere9610.github.io/fde-insight/>
+- `SKILL.md`：触发条件、资料路由和回答规则
+- `knowledge/fde-insight.schema.json`：领域类型、关系词表和证据约束
+- `knowledge/fde-insight.graph.json`：103 个实体与 128 条语义关系
+- `knowledge/report-analysis.json`：经过脱敏的 ALE 解析清单与证据分区
+- `knowledge/`：核心概念、交付阶段、角色、指标与来源映射
+- `playbooks/`：问答、培训、项目诊断和面试准备方法
+- `tests/`：结构、内容、来源边界和展示层校验
+- `index.html`、`styles.css`、`app.js`：公开展示页
 
-## Repository map
+## 证据规则
 
-- `SKILL.md`: trigger conditions and answer contract
-- `knowledge/fde-insight.schema.json`: domain classes, relation vocabulary, and evidence constraints
-- `knowledge/fde-insight.graph.json`: source-bounded entities and typed relations
-- `knowledge/report-analysis.json`: sanitized ALE extraction provenance and evidence bundles
-- `knowledge/`: supporting concepts and page-level source map
-- `playbooks/`: training, diagnosis, interview, and response patterns
-- `tests/`: structural and editorial validation
-- `index.html`, `styles.css`, `app.js`: public learning site
+回答中的内容分为三类：
 
-## Evidence policy
+- **报告结论**：有明确的报告页码来源
+- **工程判断**：根据运行机制形成的建议，需要说明前提和取舍
+- **待核验事实**：招聘、薪酬、产品能力、组织结构和政策等可能变化的信息
 
-Answers separate three kinds of statements:
+初始知识模型参考腾讯研究院《FDE模式行业观察与实践》。本仓库不包含原始 PDF，也不公开 ALE 原始解析结果。具体边界见 `NOTICE.md` 和 `knowledge/source-map.md`。
 
-- **Source finding:** supported by a named source in `knowledge/source-map.md`
-- **Engineering judgment:** a recommendation derived from the operating model
-- **Needs verification:** a time-sensitive or organization-specific claim that should not be presented as settled fact
-
-The report `FDE模式行业观察与实践` by Tencent Research Institute informed the initial knowledge model. The repository does not include the original PDF. See `NOTICE.md` for the source boundary.
-
-## Development
+## 本地开发
 
 ```bash
 npm test
 python3 -m http.server 4173
 ```
 
-Open <http://127.0.0.1:4173/> after starting the server.
+启动后访问 <http://127.0.0.1:4173/>。
 
-## License
+## 许可
 
-Software is available under the MIT License. Original text and ontology content in this repository are available under CC BY 4.0. Third-party source materials remain under their original terms.
+软件代码采用 MIT License。仓库原创文字和本体内容采用 CC BY 4.0。第三方材料仍遵循各自的授权条款。

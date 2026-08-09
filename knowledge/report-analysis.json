@@ -20,7 +20,7 @@
       "pagesWithImages": 30,
       "listItems": 80
     },
-    "publicationPolicy": "Raw extraction, image URLs, signed parameters, and report text are excluded from the public repository."
+    "publicationPolicy": "公开仓库不包含 ALE 原始解析结果、图片地址、签名参数和报告正文。"
   },
   "evidenceBundles": [
     {"id": "report:p3-6", "pages": [3, 6], "topics": ["报告定位", "核心结论", "研究边界"]},
@@ -35,8 +35,8 @@
     {"id": "report:p80-81", "pages": [80, 81], "topics": ["参考文献"]}
   ],
   "claimClasses": [
-    {"id": "source-finding", "description": "Directly grounded in a report page reference."},
-    {"id": "engineering-synthesis", "description": "A reusable engineering interpretation, marked project:synthesis."},
-    {"id": "needs-verification", "description": "A market, hiring, compensation, product, or policy claim that can drift."}
+    {"id": "source-finding", "description": "由报告具体页码直接支持的结论。"},
+    {"id": "engineering-synthesis", "description": "可复用的工程归纳，统一标记为 project:synthesis。"},
+    {"id": "needs-verification", "description": "可能随时间变化的市场、招聘、薪酬、产品或政策信息。"}
   ]
 }

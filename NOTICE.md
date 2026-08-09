@@ -1,11 +1,11 @@
-# Source and attribution notice
+# 来源与归属说明
 
-The initial research input for this project was `FDE模式行业观察与实践`, published by Tencent Research Institute in July 2026.
+本项目的初始研究输入为腾讯研究院于 2026 年 7 月发布的《FDE模式行业观察与实践》。
 
-The report describes itself as material for research and customer communication. It does not include an open source license in the supplied copy. For that reason, the original PDF is not redistributed in this repository.
+用户提供的报告副本没有附带开源许可，因此本项目不在本仓库分发原始 PDF，也不公开逐页全文、ALE 原始解析结果或带时效签名的图片地址。
 
-The repository contains an independently structured ontology, concise summaries, response protocols, and practical playbooks. They are written for this project and do not reproduce the report page by page. Page references in `knowledge/source-map.md` identify where a concept was supported or inspired by the report.
+仓库中的领域 Schema、知识图谱、摘要、回答协议和 Playbook 均为本项目重新组织和编写，不按报告页序复刻内容。`knowledge/source-map.md` 中的页码用于说明概念的报告依据或启发来源。
 
-Tencent, Tencent Cloud, CodeBuddy, and WorkBuddy are trademarks or product names of their respective owner. This independent project is not an official Tencent publication and does not imply endorsement.
+腾讯、腾讯云、CodeBuddy 和 WorkBuddy 是其权利人的商标或产品名称。本项目不是腾讯官方出版物，也不代表腾讯对本项目的认可或背书。
 
-Third-party facts mentioned in the report may change. Time-sensitive claims such as hiring volume, compensation, product capability, or organization structure require current verification before use.
+报告引用的第三方信息可能变化。招聘数量、薪酬、产品能力、组织结构和政策等时效性事实，在使用前必须重新核验当前一手来源。

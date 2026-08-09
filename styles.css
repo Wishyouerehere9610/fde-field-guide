@@ -15,7 +15,7 @@
   --shadow: rgba(36, 54, 92, 0.12);
   --panel-shadow: 0 28px 80px var(--shadow);
   --radius: 8px;
-  --content: min(1400px, calc(100% - 48px));
+  --content: min(1280px, calc(100% - 48px));
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   font-synthesis: none;
 }
@@ -161,10 +161,10 @@ button:active,
   min-height: calc(100dvh - 68px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(580px, 1.18fr);
+  grid-template-columns: minmax(420px, 0.78fr) minmax(650px, 1.22fr);
   align-items: center;
-  gap: clamp(40px, 6vw, 96px);
-  padding: 56px 0 48px;
+  gap: 56px;
+  padding: 48px 0 44px;
 }
 
 .hero-copy {
@@ -177,24 +177,28 @@ button:active,
   color: var(--accent);
   font-size: 12px;
   font-weight: 760;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .hero h1 {
-  max-width: 12ch;
   margin: 0;
-  font-size: clamp(48px, 4.4vw, 68px);
+  font-size: 58px;
   font-weight: 760;
   letter-spacing: 0;
   line-height: 1.08;
+}
+
+.hero h1 span {
+  display: block;
+  white-space: nowrap;
 }
 
 .hero-summary {
   max-width: 28rem;
   margin: 26px 0 0;
   color: var(--text-soft);
-  font-size: clamp(17px, 1.5vw, 20px);
+  font-size: 18px;
   line-height: 1.7;
 }
 
@@ -264,7 +268,7 @@ button:active,
 
 .ontology-panel {
   min-width: 0;
-  padding: 26px;
+  padding: 24px;
   border: 1px solid color-mix(in srgb, var(--line-strong) 70%, transparent);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface) 86%, transparent);
@@ -329,24 +333,40 @@ button:active,
 
 .ontology-visual {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 210px;
-  gap: 18px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   margin-top: 18px;
 }
 
+.graph-scroll {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
 #ontology-graph {
+  display: block;
   width: 100%;
   min-height: 0;
-  aspect-ratio: 760 / 520;
+  aspect-ratio: 760 / 430;
   border-radius: 6px;
   background: color-mix(in srgb, var(--surface-soft) 72%, transparent);
 }
 
 .graph-edge {
-  stroke: var(--line-strong);
-  stroke-width: 1.4;
-  opacity: 0.5;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  opacity: 0.42;
   vector-effect: non-scaling-stroke;
+}
+
+.graph-lane-label {
+  fill: var(--text-soft);
+  font-size: 11px;
+  font-weight: 650;
+  pointer-events: none;
+  text-anchor: middle;
 }
 
 .graph-node {
@@ -354,22 +374,27 @@ button:active,
   outline: none;
 }
 
-.graph-node circle {
+.graph-node rect {
   fill: var(--surface);
-  stroke: var(--line-strong);
-  stroke-width: 2;
+  stroke: var(--line);
+  stroke-width: 1.5;
   transition: fill 160ms ease-out, stroke 160ms ease-out, transform 160ms ease-out;
   transform-box: fill-box;
   transform-origin: center;
 }
 
-.graph-node:hover circle,
-.graph-node:focus circle {
+.graph-node:hover rect,
+.graph-node:focus rect {
   stroke: var(--accent);
-  transform: scale(1.08);
+  transform: scale(1.025);
 }
 
-.graph-node.is-selected circle {
+.graph-node.is-related rect {
+  fill: var(--accent-soft);
+  stroke: color-mix(in srgb, var(--accent) 62%, var(--line));
+}
+
+.graph-node.is-selected rect {
   fill: var(--accent);
   stroke: var(--accent);
 }
@@ -387,11 +412,12 @@ button:active,
 }
 
 .ontology-detail {
-  align-self: stretch;
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--surface);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+  gap: 28px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
 }
 
 .ontology-detail .detail-type {
@@ -403,7 +429,7 @@ button:active,
 
 .ontology-detail h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.35;
 }
 
@@ -414,9 +440,50 @@ button:active,
 }
 
 .ontology-detail .detail-source {
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
+  margin-top: 10px;
   font-size: 11px;
+}
+
+.detail-relations {
+  min-width: 0;
+}
+
+.detail-relations h4 {
+  margin: 0 0 8px;
+  color: var(--text-soft);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.detail-relations ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-relations li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: baseline;
+  min-width: 0;
+  padding-top: 6px;
+  border-top: 1px solid var(--line);
+}
+
+.detail-relations li span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.detail-relations li p {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+  line-height: 1.45;
 }
 
 .evidence-band {
@@ -438,7 +505,7 @@ button:active,
 
 .evidence-copy h2 {
   margin: 0;
-  font-size: clamp(24px, 2.4vw, 34px);
+  font-size: 30px;
   line-height: 1.24;
 }
 
@@ -506,7 +573,7 @@ button:active,
 .definition-statement h2 {
   max-width: 18ch;
   margin: 0;
-  font-size: clamp(36px, 4.2vw, 62px);
+  font-size: 54px;
   line-height: 1.18;
   letter-spacing: 0;
 }
@@ -562,7 +629,7 @@ button:active,
 .operating-copy h2,
 .install-copy h2 {
   margin: 0;
-  font-size: clamp(34px, 3.6vw, 52px);
+  font-size: 46px;
   line-height: 1.18;
   letter-spacing: 0;
 }
@@ -770,7 +837,7 @@ button:active,
 
 .metric-primary h3 {
   max-width: 12ch;
-  font-size: clamp(31px, 3vw, 46px);
+  font-size: 40px;
 }
 
 .metric-grid li {
@@ -938,7 +1005,7 @@ button:active,
   }
 
   .hero h1 {
-    max-width: 13ch;
+    font-size: 58px;
   }
 
   .evidence-shell {
@@ -1007,8 +1074,26 @@ button:active,
   }
 
   .hero h1 {
-    max-width: 11ch;
-    font-size: 46px;
+    font-size: 43px;
+  }
+
+  .hero-summary {
+    font-size: 17px;
+  }
+
+  .evidence-copy h2 {
+    font-size: 27px;
+  }
+
+  .definition-statement h2,
+  .section-intro h2,
+  .operating-copy h2,
+  .install-copy h2 {
+    font-size: 36px;
+  }
+
+  .metric-primary h3 {
+    font-size: 35px;
   }
 
   .hero-actions {
@@ -1040,6 +1125,26 @@ button:active,
     grid-template-columns: 1fr;
   }
 
+  .graph-scroll {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  #ontology-graph {
+    width: 650px;
+    min-height: 0;
+    aspect-ratio: 760 / 430;
+  }
+
+  .ontology-detail {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .detail-relations ul {
+    grid-template-columns: 1fr;
+  }
+
   .evidence-shell {
     grid-template-columns: 1fr;
     gap: 26px;
@@ -1059,11 +1164,6 @@ button:active,
   .evidence-metrics div:nth-child(odd) {
     border-left: 0;
     padding-left: 0;
-  }
-
-  #ontology-graph {
-    min-height: 300px;
-    aspect-ratio: auto;
   }
 
   .definition,

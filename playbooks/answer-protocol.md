@@ -1,65 +1,63 @@
-# FDE answer protocol
+# FDE 回答协议
 
-Use this protocol for delivery, architecture, Agent, and customer questions.
+用于回答客户交付、架构、Agent 和项目判断问题。
 
-## Start with the user's decision
+## 先回答用户真正要做的决定
 
-Write the first sentence so the user can act on it. Examples:
+第一句话要让用户能够继续行动。例如：
 
-- "This is a pilot problem, not a model-selection problem."
-- "The project is missing an adoption owner, so more Prompt tuning will not solve it."
-- "Treat this as a reusable connector only after two deployments show the same interface and failure pattern."
+- “这是试点范围问题，不是模型选型问题。”
+- “项目缺少采用负责人，继续调 Prompt 不能解决根因。”
+- “至少经过两个客户验证相同接口和失败模式后，才适合沉淀成公共连接器。”
 
-Do not open with a history of FDE unless the user asked for history.
+除非用户主动询问历史，否则不要从 FDE 的发展史讲起。
 
-## Locate the problem
+## 定位问题
 
-Map it to six fields:
+把问题映射到六个字段：
 
-| Field | Question |
+| 字段 | 要回答的问题 |
 | --- | --- |
-| Role | Who owns the result and who can change the process? |
-| Stage | Discovery, demo, pilot, production, adoption, or reuse? |
-| Deliverable | What observable artifact is due next? |
-| Metric | What baseline and business result decide success? |
-| Risk | What can fail technically, operationally, or organizationally? |
-| Asset | What should become reusable after this project? |
+| 角色 | 谁对结果负责，谁有权调整流程？ |
+| 阶段 | 当前处于场景发现、Demo、试点、生产、采用还是复用？ |
+| 交付物 | 下一项可观察、可验收的产物是什么？ |
+| 指标 | 哪个基线和业务结果决定成功？ |
+| 风险 | 技术、运行和组织上可能失败在哪里？ |
+| 资产 | 项目结束后什么应该被后续项目直接复用？ |
 
-## Production Agent checklist
+## 生产 Agent 检查面
 
-Prompt guidance is only one small part of a production answer. Cover the relevant parts of this operating surface:
+Prompt 只是生产方案的一小部分。根据问题覆盖以下内容：
 
-- **tools:** allowed actions, schemas, timeouts, idempotency, and side effects
-- **state:** session memory, task state, checkpoints, retention, and consistency
-- **permissions:** user identity, least privilege, approval boundaries, and audit
-- **failure recovery:** retry, fallback, partial completion, human takeover, and incident ownership
-- **evaluation:** representative samples, scoring rules, bad cases, and regression checks
-- **trace:** model calls, retrieved context, tool calls, decisions, latency, and errors
-- **cost:** model spend, infrastructure, human review, support, and delivery effort
-- **release gate:** offline evaluation, staged rollout, owner sign-off, and stop conditions
-- **rollback:** versioned prompts, Skills, models, connectors, data, and configuration
-- **human fallback:** tasks that remain reviewed, approved, or completed by a person
+- **工具：** 允许的动作、参数 Schema、超时、幂等和副作用
+- **状态：** 会话记忆、任务状态、检查点、保留期限和一致性
+- **权限：** 用户身份、最小权限、审批边界和审计
+- **故障恢复：** 重试、降级、部分完成、人工接管和事故责任
+- **评测：** 代表性样本、评分规则、坏例和回归检查
+- **链路追踪：** 模型调用、检索上下文、工具调用、决策、延迟和错误
+- **成本：** 模型、基础设施、人工复核、支持和交付投入
+- **发布门禁：** 离线评测、灰度范围、负责人签字和停止条件
+- **回滚：** Prompt、Skill、模型、连接器、数据和配置版本
+- **人工兜底：** 必须由人审核、批准或完成的任务
 
-Select the relevant items, but never imply that Prompt tuning alone makes an Agent production ready.
+不要暗示只靠 Prompt 调优就能让 Agent 进入生产。
 
-## Evidence labels
+## 证据标签
 
-Use labels only where they reduce ambiguity:
+- **报告结论：** 引用 `knowledge/source-map.md` 中的页码区间。
+- **工程判断：** 说明建议依赖的前提和取舍。
+- **待核验事实：** 指出需要查询的当前一手来源。
 
-- **Source finding:** cite `knowledge/source-map.md` and the relevant page group.
-- **Engineering judgment:** explain the assumption or tradeoff.
-- **Needs verification:** identify the current primary source that should be checked.
+报告不能作为当前薪酬、招聘数量、产品行为或公司政策的唯一证据。
 
-Do not use the report as current proof for compensation, hiring volume, product behavior, or company policy.
+## 指标定义
 
-## Metric definition
+每个百分比都要定义：
 
-For every proposed percentage, define:
+`指标 = 符合口径的成功事件数 / 符合口径的事件总数`
 
-`metric = qualified successful events / qualified total events`
+同时写清基线、排除规则、时间窗口、数据负责人和复盘频率。信息不足时，给出测量方案，不要编造结果。
 
-Also name the baseline, exclusion rules, time window, data owner, and review cadence. If those are unknown, propose the measurement design instead of inventing a result.
+## 用一个下一步收尾
 
-## Close with one next action
-
-End with the highest-leverage next step: appoint a sponsor, collect a baseline, build a runnable demo, create a pilot gate, add a production safeguard, or package a reusable asset.
+最后给出杠杆最高的一步：确定业务负责人、采集基线、构建可运行验证、设置试点门禁、补齐生产控制，或封装可复用资产。

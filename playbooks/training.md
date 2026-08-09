@@ -1,62 +1,53 @@
-# FDE training playbook
+# FDE 培训设计
 
-## Training outcome
+## 培训目标
 
-Participants should be able to turn one ambiguous AI request into a bounded delivery plan, a runnable validation, a production checklist, a value measurement, and a reusable asset decision.
+参与者应能把一个模糊 AI 需求转成边界清晰的交付计划、可运行验证、生产检查表、价值测量方案和复用判断。
 
-## Recommended format
+## 推荐形式
 
-Use one continuous case instead of unrelated lectures. A compact program can run in four modules.
+使用一个连续案例贯穿全程，不要用互不相关的讲座拼接。紧凑课程可以分为四个模块。
 
-### Find the real task
+### 找到真实任务
 
-Give participants a vague request such as "build an enterprise knowledge Agent." Ask them to identify users, decisions, current process, systems, failure costs, sponsor, and baseline.
+给出“建设企业知识 Agent”这类模糊需求。要求参与者识别用户、决策、当前流程、相关系统、失败代价、业务负责人和基线。
 
-**Artifact:** scenario map.
+**交付物：** 场景地图。
 
-**Scoring:** problem clarity, business ownership, measurable baseline, and explicit exclusions.
+**评分：** 问题是否清晰、业务责任是否明确、基线是否可测、排除项是否写清。
 
-### Build a runnable validation
+### 构建可运行验证
 
-Ask teams to select one critical path and define realistic data, tool calls, expected output, failure cases, and a demo script.
+选择一条关键路径，定义真实数据、工具调用、预期输出、失败案例和演示脚本。
 
-**Artifact:** runnable-demo brief and evaluation sample.
+**交付物：** 可运行验证方案与评测样本。
 
-**Scoring:** whether the demo exposes risk instead of hiding it.
+**评分：** Demo 是否主动暴露风险，而不是隐藏风险。
 
-### Cross the production gap
+### 跨过生产门槛
 
-Teams add permissions, state, observability, human fallback, release gates, rollback, cost, and support ownership.
+补充权限、状态、可观测性、人工兜底、发布门禁、回滚、成本和支持责任。
 
-**Artifact:** production readiness review.
+**交付物：** 生产就绪评审。
 
-**Scoring:** completeness of control points and clarity of responsibility.
+**评分：** 控制点是否完整，责任边界是否清楚。
 
-### Create the learning loop
+### 建立学习闭环
 
-Teams split project outcomes into customer-specific configuration, optional industry capability, and stable shared capability.
+把项目结果拆成客户专属配置、可选行业能力和稳定公共能力。
 
-**Artifact:** reusable asset proposal with owner, version, evidence, and next deployment target.
+**交付物：** 可复用资产提案，包含负责人、版本、证据和下一个验证客户。
 
-**Scoring:** evidence of reuse, not the amount of documentation.
+**评分：** 看复用证据，不看文档数量。
 
-## Instructor guidance
+## 讲师要求
 
-- Use real constraints and incomplete information.
-- Reject invented improvement percentages.
-- Ask who can change the customer's process whenever adoption is treated as a training issue.
-- Ask what will be reused whenever a team calls ordinary delivery FDE.
-- Debrief tradeoffs. There is rarely one correct architecture.
+- 使用真实约束和不完整信息。
+- 在案例中加入权限、数据质量、组织阻力和长尾失败。
+- 要求学员明确说出“不做什么”。
+- 复盘判断过程，不只复盘最终方案。
+- 让学员根据新证据修改方案，观察其是否坚持错误假设。
 
-## Assessment rubric
+## 结业标准
 
-Score each dimension from 0 to 3:
-
-- business problem definition
-- engineering feasibility
-- production safety
-- adoption design
-- value measurement
-- reusable learning
-
-A team should not pass with a strong demo and no production or adoption plan.
+学员能够给出一份可执行的 FDE 交付计划，并说明生产结果、采用证据、风险控制和复用资产之间的关系。

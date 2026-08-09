@@ -37,8 +37,8 @@
     <main id="main-content">
       <section class="hero" id="top">
         <div class="hero-copy reveal">
-          <p class="kicker">Forward Deployed Engineering</p>
-          <h1>把客户现场，变成可复用能力。</h1>
+          <p class="kicker">前线部署工程</p>
+          <h1><span>把客户现场，</span><span>变成可复用能力。</span></h1>
           <p class="hero-summary">面向培训、项目诊断与职业准备的开源 FDE 知识系统。</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#method">查看方法</a>
@@ -79,14 +79,18 @@
           </div>
 
           <div class="ontology-visual">
-            <svg id="ontology-graph" viewBox="0 0 760 520" role="img" aria-labelledby="graph-title graph-description">
-              <title id="graph-title">FDE 知识图谱</title>
-              <desc id="graph-description">展示 FDE 角色、交付阶段、资产和风险之间的关系。筛选按钮可以切换节点类型。</desc>
-            </svg>
+            <div class="graph-scroll" tabindex="0" aria-label="可横向滚动的知识图谱">
+              <svg id="ontology-graph" viewBox="0 0 760 430" role="img" aria-labelledby="graph-title graph-description">
+                <title id="graph-title">FDE 知识图谱</title>
+                <desc id="graph-description">展示 FDE 角色、交付阶段、资产和风险之间的关系。筛选按钮可以切换节点类型。</desc>
+              </svg>
+            </div>
             <aside class="ontology-detail" id="ontology-detail" aria-label="节点详情">
-              <p class="detail-type">读取中</p>
-              <h3>正在准备知识图谱</h3>
-              <p>加载完成后，可点击或使用键盘选择任一节点。</p>
+              <div class="detail-summary">
+                <p class="detail-type">读取中</p>
+                <h3>正在准备知识图谱</h3>
+                <p>加载完成后，可点击或使用键盘选择任一节点。</p>
+              </div>
             </aside>
           </div>
         </div>
@@ -95,7 +99,7 @@
       <section class="evidence-band" aria-labelledby="evidence-heading">
         <div class="section-shell evidence-shell reveal">
           <div class="evidence-copy">
-            <p class="panel-label">ALE extraction record</p>
+            <p class="panel-label">ALE 解析证据</p>
             <h2 id="evidence-heading">从 83 页报告到可审计的领域图谱</h2>
             <p>原文不公开。Schema、图谱和页级证据分区可直接检查，也可以被 Agent 按需加载。</p>
           </div>
@@ -106,9 +110,9 @@
             <div><dt>10</dt><dd>实体类型</dd></div>
           </dl>
           <div class="evidence-links">
-            <a href="knowledge/fde-insight.schema.json">Domain Schema</a>
-            <a href="knowledge/fde-insight.graph.json">Knowledge Graph</a>
-            <a href="knowledge/report-analysis.json">Parse Manifest</a>
+            <a href="knowledge/fde-insight.schema.json">领域 Schema</a>
+            <a href="knowledge/fde-insight.graph.json">知识图谱</a>
+            <a href="knowledge/report-analysis.json">解析清单</a>
           </div>
         </div>
       </section>
@@ -157,7 +161,7 @@
             <li>
               <h3>可运行验证</h3>
               <p>用真实问题跑通关键路径，主动寻找失败点。</p>
-              <span>产出：Runnable Demo</span>
+              <span>产出：可运行原型</span>
             </li>
             <li>
               <h3>受控试点</h3>

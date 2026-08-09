@@ -25,7 +25,10 @@ test('README documents Skill installation and GitHub Pages', async () => {
   assert.match(readme, /--skill fde-insight/);
   assert.match(readme, /^# FDE Insight$/mu);
   assert.match(readme, /GitHub Pages/);
-  assert.match(readme, /FDE is not staff augmentation/i);
+  assert.match(readme, /FDE 不是传统驻场外包/);
+  assert.match(readme, /^## 安装 Skill$/mu);
+  assert.match(readme, /^## 项目结构$/mu);
+  assert.doesNotMatch(readme, /^## (Use|Browse|Repository|Evidence|Development|License)/mu);
 });
 
 test('source and licensing boundaries are explicit', async () => {
@@ -35,8 +38,8 @@ test('source and licensing boundaries are explicit', async () => {
     read('CONTENT-LICENSE'),
   ]);
 
-  assert.match(notice, /original PDF is not redistributed/i);
-  assert.match(notice, /Tencent Research Institute/i);
+  assert.match(notice, /不在本仓库分发原始 PDF/);
+  assert.match(notice, /腾讯研究院/);
   assert.match(softwareLicense, /MIT License/);
   assert.match(contentLicense, /Creative Commons Attribution 4\.0/);
 });

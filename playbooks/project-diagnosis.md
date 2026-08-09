@@ -1,52 +1,52 @@
-# FDE project diagnosis
+# FDE 项目诊断
 
-## Intake
+## 最小证据集
 
-Collect the smallest evidence set that can support a decision:
+先收集足以支持判断的最小证据：
 
-- stated business outcome and current baseline
-- target users and customer sponsor
-- current process and systems
-- working demo or production behavior
-- evaluation samples and bad cases
-- permissions, audit, monitoring, and fallback
-- usage and business metrics
-- reusable assets already produced
+- 业务目标与当前基线
+- 目标用户与客户业务负责人
+- 当前流程与相关系统
+- 可运行 Demo 或生产表现
+- 评测样本与坏例
+- 权限、审计、监控和兜底
+- 使用与业务指标
+- 已经形成的可复用资产
 
-Do not diagnose from a slide deck when a runnable system or trace is available.
+有可运行系统或 Trace 时，不要只根据汇报材料诊断。
 
-## Maturity diagnosis
+## 成熟度判断
 
-Classify the project by the strongest stage it has actually passed:
+按项目真正通过的最高阶段判断：
 
-| Stage | Exit evidence |
+| 阶段 | 退出证据 |
 | --- | --- |
-| Discovery | Sponsor, baseline, bounded scenario, system map |
-| Runnable demo | Critical path works on representative inputs |
-| Pilot | Real users, controlled scope, evaluation and rollback |
-| Production | Governance, monitoring, support and responsibility |
-| Adoption | Stable use, process integration, measurable result |
-| Reuse | Asset used by a later deployment with lower effort |
+| 场景发现 | 负责人、基线、边界清晰的场景和系统地图 |
+| 可运行验证 | 关键路径在代表性输入上跑通 |
+| 受控试点 | 真实用户、限定范围、评测和回滚 |
+| 生产上线 | 治理、监控、支持和责任归属 |
+| 组织采用 | 稳定使用、流程嵌入和可衡量结果 |
+| 沉淀复用 | 后续项目以更低投入使用了既有资产 |
 
-Do not advance a project because documents exist. Require runtime or business evidence for each exit.
+不能因为文档齐全就提升项目阶段。每个阶段都要有运行或业务证据。
 
-## Failure patterns
+## 常见失败模式
 
-- **Demo trap:** impressive output, no production controls or representative evaluation.
-- **Sponsor gap:** no one can change workflow or own adoption.
-- **Integration stall:** core systems, permissions, or data access remain unresolved.
-- **Metric gap:** technical score has no link to a business baseline.
-- **Adoption decay:** initial activity drops because the workflow never changed.
-- **Outsourcing drift:** every customer request creates new custom code and no reusable asset.
+- **Demo 陷阱：** 输出好看，但没有代表性评测和生产控制。
+- **业务负责人缺失：** 没有人能调整流程或对采用负责。
+- **集成停滞：** 核心系统、权限或数据访问长期没有解决。
+- **指标缺口：** 技术分数与业务基线没有关系。
+- **采用衰减：** 新鲜感消失后，原有流程没有发生变化。
+- **外包化漂移：** 每个客户都新增定制代码，没有公共资产。
 
-## Output format
+## 输出格式
 
-Give the diagnosis in five lines before expanding:
+先用五行给出诊断，再按需展开：
 
-1. Current stage
-2. Evidence for that stage
-3. Blocking gap
-4. Highest-risk assumption
-5. Next gate and owner
+1. 当前阶段
+2. 最关键的证据
+3. 最大缺口
+4. 下一阶段门槛
+5. 应沉淀的资产
 
-Then add only the work needed to pass the next gate. Do not write a full transformation roadmap for a project that has not completed discovery.
+建议必须对应负责人、交付物、完成条件和复盘时间。

@@ -121,11 +121,11 @@ test('domain schema and ALE provenance are published', async () => {
 test('source map states page evidence and publication limits', async () => {
   const sourceMap = await readFile(new URL('knowledge/source-map.md', root), 'utf8');
 
-  assert.match(sourceMap, /Pages 8-17/);
-  assert.match(sourceMap, /Pages 28-40/);
-  assert.match(sourceMap, /Pages 47-60/);
-  assert.match(sourceMap, /not redistributed/i);
+  assert.match(sourceMap, /第 8-17 页/);
+  assert.match(sourceMap, /第 28-40 页/);
+  assert.match(sourceMap, /第 47-60 页/);
+  assert.match(sourceMap, /不分发原始 PDF/);
   assert.match(sourceMap, /ALE CLI/);
-  assert.match(sourceMap, /196 headings/);
-  assert.match(sourceMap, /Needs current verification/);
+  assert.match(sourceMap, /196 个标题/);
+  assert.match(sourceMap, /必须重新核验/);
 });

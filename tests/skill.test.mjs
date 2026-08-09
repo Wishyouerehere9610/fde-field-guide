@@ -8,17 +8,17 @@ async function read(relativePath) {
   return readFile(new URL(relativePath, root), 'utf8');
 }
 
-test('Skill metadata is discoverable without summarizing the workflow', async () => {
+test('Skill metadata is Chinese and discoverable without summarizing the workflow', async () => {
   const skill = await read('SKILL.md');
   const frontmatter = skill.match(/^---\n([\s\S]*?)\n---/u)?.[1] ?? '';
   const description = frontmatter.match(/^description:\s*(.+)$/mu)?.[1] ?? '';
 
   assert.match(frontmatter, /^name: fde-insight$/mu);
-  assert.match(description, /^Use when /);
+  assert.match(description, /^当用户/);
   assert.match(description, /FDE|Forward Deployed Engineer/);
-  assert.match(description, /training|interview|delivery|customer/i);
+  assert.match(description, /培训|面试|交付|客户/);
   assert.ok(description.length <= 500, 'description should remain concise');
-  assert.doesNotMatch(description, /first|then|workflow|load the ontology/i);
+  assert.doesNotMatch(description, /首先|然后|工作流|加载本体/);
 });
 
 test('Skill routes questions into shared knowledge and playbooks', async () => {
@@ -44,29 +44,19 @@ test('Skill routes questions into shared knowledge and playbooks', async () => {
 test('Skill enforces evidence labels and direct answers', async () => {
   const skill = await read('SKILL.md');
 
-  assert.match(skill, /Direct answer first/);
-  assert.match(skill, /Source finding/);
-  assert.match(skill, /Engineering judgment/);
-  assert.match(skill, /Needs verification/);
-  assert.match(skill, /Do not invent metrics/i);
-  assert.match(skill, /not staff augmentation/i);
+  assert.match(skill, /先给结论/);
+  assert.match(skill, /报告结论/);
+  assert.match(skill, /工程判断/);
+  assert.match(skill, /待核验事实/);
+  assert.match(skill, /不得编造指标/);
+  assert.match(skill, /不是传统驻场外包/);
 });
 
 test('production answers cover the full Agent operating surface', async () => {
   const protocol = await read('playbooks/answer-protocol.md');
-  const requiredTerms = [
-    'tools',
-    'state',
-    'permissions',
-    'failure recovery',
-    'evaluation',
-    'trace',
-    'cost',
-    'release gate',
-    'rollback',
-  ];
+  const requiredTerms = ['工具', '状态', '权限', '故障恢复', '评测', '链路追踪', '成本', '发布门禁', '回滚'];
 
-  for (const term of requiredTerms) assert.match(protocol.toLowerCase(), new RegExp(term));
+  for (const term of requiredTerms) assert.match(protocol, new RegExp(term));
 });
 
 test('pressure scenarios cover practical FDE questions', async () => {

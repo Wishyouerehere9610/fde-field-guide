@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://wishyouerehere9610.github.io/fde-insight/knowledge/fde-insight.schema.json",
-  "title": "FDE Insight Domain Graph Schema",
-  "description": "Schema for source-bounded FDE domain entities and typed relations derived from the report and explicit engineering synthesis.",
+  "title": "FDE Insight 领域图谱 Schema",
+  "description": "用于描述 FDE 领域实体、类型化关系及证据边界的 Schema，内容来自报告证据和明确标注的工程归纳。",
   "type": "object",
   "required": ["meta", "nodes", "relations"],
   "additionalProperties": false,

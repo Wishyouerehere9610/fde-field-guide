@@ -1,7 +1,7 @@
 {
   "name": "fde-insight",
   "version": "1.0.0",
-  "description": "An open source Agent Skill and learning site for Forward Deployed Engineering.",
+  "description": "面向前线部署工程的开源 Agent Skill、领域知识图谱与学习站点。",
   "type": "module",
   "private": false,
   "scripts": {
