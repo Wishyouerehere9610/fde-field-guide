@@ -6,7 +6,7 @@
 
 FDE Insight 是一套开源 Skill 与学习站点，用于回答前线部署工程（FDE）相关问题。内容覆盖岗位理解、客户交付、生产化、组织采用、指标设计、行业现状、岗位薪酬、职业准备和可复用资产建设。
 
-[可视化讲解](https://wishyouerehere9610.github.io/fde-insight/) · [岗位薪酬](./knowledge/compensation-market.md) · [83 页逐页索引](./knowledge/report-page-index.json) · [安装 Skill](#安装-skill) · [领域 Schema](./knowledge/fde-insight.schema.json)
+[可视化讲解](https://wishyouerehere9610.github.io/fde-insight/) · [岗位薪酬](./knowledge/compensation-market.md) · [行业信息](./knowledge/report-page-index.json) · [安装 Skill](#安装-skill) · [行业领域 Schema](./knowledge/fde-insight.schema.json)
 
 ## 可视化讲解
 
