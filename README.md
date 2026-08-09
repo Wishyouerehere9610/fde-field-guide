@@ -12,7 +12,7 @@ FDE Insight 是一套开源 Skill 与学习站点，用于回答前线部署工�
 
 [![FDE Insight 展示页](./docs/fde-insight-preview.png)](https://wishyouerehere9610.github.io/fde-insight/)
 
-GitHub Pages 展示页与 Skill 使用同一份领域 Schema 和知识图谱。页面直接呈现角色、交付阶段、机制、资产、风险与语义关系。
+展示Skill使用的领域Schema和知识图谱，呈现角色、交付阶段、机制、资产、风险与语义关系。
 
 | 83 页 | 108 个 | 138 条 | 13 类 |
 |:---:|:---:|:---:|:---:|
