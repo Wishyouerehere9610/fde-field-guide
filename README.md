@@ -4,9 +4,9 @@
 
 **把客户现场的问题，变成可复用的产品能力。**
 
-FDE Insight 是一套开源 Skill 与学习站点，用于回答前线部署工程（FDE）相关问题。内容覆盖岗位理解、客户交付、生产化、组织采用、指标设计、职业准备和可复用资产建设。
+FDE Insight 是一套开源 Skill 与学习站点，用于回答前线部署工程（FDE）相关问题。内容覆盖岗位理解、客户交付、生产化、组织采用、指标设计、行业现状、岗位薪酬、职业准备和可复用资产建设。
 
-[可视化讲解](https://wishyouerehere9610.github.io/fde-insight/) · [安装 Skill](#安装-skill) · [领域 Schema](./knowledge/fde-insight.schema.json) · [证据地图](./knowledge/source-map.md)
+[可视化讲解](https://wishyouerehere9610.github.io/fde-insight/) · [岗位薪酬](./knowledge/compensation-market.md) · [83 页逐页索引](./knowledge/report-page-index.json) · [安装 Skill](#安装-skill) · [领域 Schema](./knowledge/fde-insight.schema.json)
 
 ## 可视化讲解
 
@@ -14,7 +14,7 @@ FDE Insight 是一套开源 Skill 与学习站点，用于回答前线部署工�
 
 GitHub Pages 展示页与 Skill 使用同一份领域 Schema 和知识图谱。页面直接呈现角色、交付阶段、机制、资产、风险与语义关系。
 
-| 83 页 | 103 个 | 128 条 | 10 类 |
+| 83 页 | 108 个 | 138 条 | 13 类 |
 |:---:|:---:|:---:|:---:|
 | 报告覆盖 | 领域实体 | 语义关系 | 实体类型 |
 
@@ -23,6 +23,7 @@ GitHub Pages 展示页与 Skill 使用同一份领域 Schema 和知识图谱。�
 | 场景 | 能回答什么 | 主要资产 |
 |---|---|---|
 | 岗位与职业 | FDE 的职责、能力模型、面试准备和职业路径 | 角色本体、能力模型、面试 Playbook |
+| 行业与待遇 | 中外岗位结构、公开薪酬样本和 Offer 比较口径 | 行业观察、薪酬 JSON、来源等级 |
 | 客户交付 | 如何选场景、做试点、进生产并推动组织采用 | 六阶段交付链路、退出证据、风险清单 |
 | Agent 生产化 | 工具、状态、权限、评测、Trace、成本、发布与回滚 | Agent 工程检查表、生产治理规则 |
 | 项目诊断 | 项目为什么停在 Demo，缺少什么生产条件 | 项目诊断 Playbook、风险与指标关系 |
@@ -39,6 +40,8 @@ GitHub Pages 展示页与 Skill 使用同一份领域 Schema 和知识图谱。�
 - `帮我诊断这个客户项目为什么无法规模化复制。`
 - `为新入职 FDE 设计一套培训课程和案例练习。`
 - `生产 Agent 除了 Prompt，还需要哪些工程能力？`
+- `腾讯、字节、阿里和海外 FDE 的公开待遇怎么比较？`
+- `现在的 FDE 行业处于什么阶段，哪些岗位属于强 FDE？`
 
 ## 安装 Skill
 
@@ -58,8 +61,10 @@ npx skills add Wishyouerehere9610/fde-insight --skill fde-insight --agent codex 
 |---|---|
 | [`SKILL.md`](./SKILL.md) | 触发条件、资料路由、证据规则和回答结构 |
 | [`knowledge/fde-insight.schema.json`](./knowledge/fde-insight.schema.json) | 领域类型、关系词表与证据约束 |
-| [`knowledge/fde-insight.graph.json`](./knowledge/fde-insight.graph.json) | 103 个实体与 128 条类型化关系 |
-| [`knowledge/`](./knowledge/) | 核心概念、交付阶段、角色、指标和来源映射 |
+| [`knowledge/fde-insight.graph.json`](./knowledge/fde-insight.graph.json) | 108 个实体与 138 条类型化关系 |
+| [`knowledge/report-page-index.json`](./knowledge/report-page-index.json) | 83 页逐页索引，不公开报告正文 |
+| [`knowledge/compensation-market.json`](./knowledge/compensation-market.json) | 国内外 FDE 薪酬样本、币种、周期与来源等级 |
+| [`knowledge/`](./knowledge/) | 核心概念、交付阶段、角色、指标、行业现状和来源映射 |
 | [`playbooks/`](./playbooks/) | 问答、培训、项目诊断和面试准备方法 |
 | `index.html`、`styles.css`、`app.js` | GitHub Pages 展示层 |
 | [`tests/`](./tests/) | 内容、结构、来源边界和展示层校验 |

@@ -32,6 +32,11 @@ test('Skill routes questions into shared knowledge and playbooks', async () => {
     'knowledge/roles-and-operating-model.md',
     'knowledge/metrics-and-risks.md',
     'knowledge/source-map.md',
+    'knowledge/report-page-index.json',
+    'knowledge/jobs-and-compensation.md',
+    'knowledge/industry-and-market.md',
+    'knowledge/compensation-market.md',
+    'knowledge/compensation-market.json',
     'playbooks/answer-protocol.md',
     'playbooks/training.md',
     'playbooks/project-diagnosis.md',
@@ -50,6 +55,27 @@ test('Skill enforces evidence labels and direct answers', async () => {
   assert.match(skill, /待核验事实/);
   assert.match(skill, /不得编造指标/);
   assert.match(skill, /不是传统驻场外包/);
+  assert.match(skill, /薪酬|待遇/);
+  assert.match(skill, /行业现状|招聘趋势/);
+  assert.match(skill, /采集窗口/);
+});
+
+test('career knowledge preserves salary samples and their limits', async () => {
+  const content = await read('knowledge/jobs-and-compensation.md');
+  for (const term of ['273 条', '153 条', '196,489', '187,500', '8-25K', '60-85K', '2026 年 4-7 月']) {
+    assert.match(content, new RegExp(term.replaceAll('-', '\\-')));
+  }
+  assert.match(content, /不能作为当前 Offer/);
+  assert.match(content, /重新核验/);
+});
+
+test('industry knowledge covers market structure and trend questions', async () => {
+  const content = await read('knowledge/industry-and-market.md');
+  for (const term of ['岗位名称显性化', '招聘主体扩散', '强 FDE', '中美差异', '30 条以上']) {
+    assert.match(content, new RegExp(term));
+  }
+  assert.match(content, /report:p64-79/);
+  assert.match(content, /待核验事实/);
 });
 
 test('production answers cover the full Agent operating surface', async () => {

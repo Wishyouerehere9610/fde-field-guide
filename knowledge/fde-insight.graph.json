@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "FDE Insight 领域知识图谱",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "schemaVersion": "1.0.0",
     "language": "zh-CN",
     "updated": "2026-08-09",
@@ -840,6 +840,46 @@
       "nameEn": "AI tool layer",
       "definition": "通过 AI 编程、办公助手和 Agent 工具降低原型、接口适配、测试与文档等工程执行成本。",
       "sourceRefs": ["report:p19-26", "report:p32-36"]
+    },
+    {
+      "id": "market-overseas-fde-2026",
+      "type": "market",
+      "name": "海外 FDE 招聘市场",
+      "nameEn": "Overseas FDE market",
+      "definition": "报告采集的海外 FDE 与相邻岗位样本，反映 2026 年 4-7 月的岗位命名、能力要求和薪酬披露情况。",
+      "sourceRefs": ["report:p64-79", "needs-verification"]
+    },
+    {
+      "id": "market-china-fde-2026",
+      "type": "market",
+      "name": "中国 FDE 招聘市场",
+      "nameEn": "China FDE market",
+      "definition": "国内云厂商、模型公司和平台企业发布的 FDE 及相邻客户工程岗位，名称与薪酬口径仍较分散。",
+      "sourceRefs": ["report:p73-79", "needs-verification"]
+    },
+    {
+      "id": "job-profile-fde-core",
+      "type": "job-profile",
+      "name": "FDE 核心岗位画像",
+      "nameEn": "Core FDE job profile",
+      "definition": "兼具客户业务拆解、全栈实现、系统集成、生产治理与资产回流责任的复合型客户工程岗位。",
+      "sourceRefs": ["report:p64-79", "needs-verification"]
+    },
+    {
+      "id": "compensation-overseas-fde-2026",
+      "type": "compensation",
+      "name": "海外 FDE 薪酬样本",
+      "nameEn": "Overseas FDE compensation sample",
+      "definition": "以 USD 年基薪为主的公开招聘样本，奖金、股权和福利需要单独核验，不能直接视为总包。",
+      "sourceRefs": ["report:p67-68", "needs-verification"]
+    },
+    {
+      "id": "compensation-china-fde-tiers-2026",
+      "type": "compensation",
+      "name": "国内 FDE 薪酬分层样本",
+      "nameEn": "China FDE compensation tiers",
+      "definition": "以 CNY 月薪和发薪月数表达的国内招聘样本分层，职级、奖金、股权和补贴不在统一口径内。",
+      "sourceRefs": ["report:p73-76", "needs-verification"]
     }
   ],
   "relations": [
@@ -988,6 +1028,17 @@
     {"from": "principle-sedimentation-first", "to": "risk-margin-pressure", "type": "mitigates"},
     {"from": "principle-three-party-loop", "to": "mechanism-partner-replication", "type": "governs"},
     {"from": "mechanism-echo-delta-pairing", "to": "risk-organizational-misalignment", "type": "mitigates"},
-    {"from": "deliverable-value-review", "to": "risk-stale-market-claim", "type": "mitigates"}
+    {"from": "deliverable-value-review", "to": "risk-stale-market-claim", "type": "mitigates"},
+
+    {"from": "job-profile-fde-core", "to": "role-fde", "type": "observed_in"},
+    {"from": "job-profile-fde-core", "to": "capability-full-stack-delivery", "type": "requires"},
+    {"from": "job-profile-fde-core", "to": "capability-business-discovery", "type": "requires"},
+    {"from": "job-profile-fde-core", "to": "market-overseas-fde-2026", "type": "observed_in"},
+    {"from": "job-profile-fde-core", "to": "market-china-fde-2026", "type": "observed_in"},
+    {"from": "compensation-overseas-fde-2026", "to": "market-overseas-fde-2026", "type": "observed_in"},
+    {"from": "compensation-china-fde-tiers-2026", "to": "market-china-fde-2026", "type": "observed_in"},
+    {"from": "compensation-overseas-fde-2026", "to": "compensation-china-fde-tiers-2026", "type": "compared_with"},
+    {"from": "compensation-overseas-fde-2026", "to": "risk-stale-market-claim", "type": "depends_on"},
+    {"from": "compensation-china-fde-tiers-2026", "to": "risk-stale-market-claim", "type": "depends_on"}
   ]
 }

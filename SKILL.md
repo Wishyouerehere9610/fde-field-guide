@@ -14,13 +14,15 @@ FDE 把客户现场的不确定问题变成可运行的生产结果，再把现�
 | 用户问题 | 必须读取 |
 | --- | --- |
 | 定义、岗位或模式对比 | `knowledge/concepts.md`、`knowledge/fde-insight.schema.json`、`knowledge/fde-insight.graph.json` |
+| 岗位职责、能力或待遇 | `knowledge/jobs-and-compensation.md`、`knowledge/compensation-market.md`、`knowledge/compensation-market.json` |
+| 行业现状或招聘趋势 | `knowledge/industry-and-market.md`、`knowledge/report-page-index.json` |
 | 交付、架构或生产化 | `knowledge/lifecycle.md`、`playbooks/answer-protocol.md` |
 | 团队、角色或考核 | `knowledge/roles-and-operating-model.md` |
 | 指标、价值或风险 | `knowledge/metrics-and-risks.md` |
 | 培训设计 | `playbooks/training.md` |
 | 项目诊断 | `playbooks/project-diagnosis.md` |
 | 面试或职业发展 | `playbooks/interview-and-career.md` |
-| 报告数据或时效性事实 | `knowledge/source-map.md`、`knowledge/report-analysis.json` |
+| 报告数据或时效性事实 | `knowledge/source-map.md`、`knowledge/report-analysis.json`、`knowledge/report-page-index.json` |
 
 ## 回答规则
 
@@ -32,7 +34,8 @@ FDE 把客户现场的不确定问题变成可运行的生产结果，再把现�
    - **待核验事实：** 可能随时间变化，必须重新查询当前一手来源。
 4. 不得编造指标、客户成果、薪酬或公司政策。提出百分比时，必须写清分子、分母、基线、排除项、时间窗口和数据负责人。
 5. 回答生产 Agent 问题时，至少覆盖工具、状态、权限、故障恢复、评测、链路追踪、成本、发布门禁、回滚和人工兜底。只讲 Prompt 不算完整方案。
-6. 默认使用中文。保留必要的产品名、协议名、代码标识和行业术语。
+6. 回答薪酬或待遇问题时，写明采集窗口、币种、月薪或年基薪、发薪月数、股权和来源等级。不同币种与总包口径不得直接比较。
+7. 默认使用中文。保留必要的产品名、协议名、代码标识和行业术语。
 
 ## 复用检验
 

@@ -610,6 +610,82 @@ button:active,
   color: var(--accent-strong);
 }
 
+.market {
+  padding: 108px 0 96px;
+}
+
+.market-heading {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 1.1fr);
+  gap: clamp(42px, 8vw, 128px);
+  align-items: end;
+}
+
+.market-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 1.18;
+}
+
+.market-heading > p {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 15px;
+}
+
+.market-ledger {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 64px;
+  border-block: 1px solid var(--line-strong);
+}
+
+.market-ledger article {
+  min-height: 190px;
+  padding: 26px 28px 28px 0;
+  border-right: 1px solid var(--line);
+}
+
+.market-ledger article + article {
+  padding-left: 28px;
+}
+
+.market-ledger article:last-child {
+  border-right: 0;
+}
+
+.market-ledger p {
+  margin: 0;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 760;
+}
+
+.market-ledger h3 {
+  margin: 38px 0 10px;
+  font-family: var(--mono);
+  font-size: 25px;
+  letter-spacing: 0;
+}
+
+.market-ledger span {
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.market-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-top: 24px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .definition {
   padding: 128px 0 112px;
 }
@@ -1290,12 +1366,14 @@ button:active,
   }
 
   .definition,
+  .market,
   .operating,
   .install {
     padding: 88px 0;
   }
 
   .definition-statement,
+  .market-heading,
   .source-note {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -1316,6 +1394,27 @@ button:active,
 
   .definition-grid h3 {
     margin-top: 24px;
+  }
+
+  .market-ledger {
+    grid-template-columns: 1fr;
+    margin-top: 44px;
+  }
+
+  .market-ledger article,
+  .market-ledger article + article {
+    min-height: auto;
+    padding: 24px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .market-ledger article:last-child {
+    border-bottom: 0;
+  }
+
+  .market-ledger h3 {
+    margin-top: 20px;
   }
 
   .lifecycle,

@@ -8,7 +8,7 @@
 
 ## ALE 解析记录
 
-83 页报告已使用 ALE CLI 0.7.0 的 Markdown 与 JSON 模式完成解析。解析结果覆盖全部 83 页，识别出 196 个标题、54 张表格、41 个图像元素、30 个含图页面和 80 个列表项。脱敏后的解析清单见 `knowledge/report-analysis.json`。
+83 页报告已使用 ALE CLI 0.7.0 的 Markdown 与 JSON 模式完成解析。解析结果覆盖全部 83 页，识别出 196 个标题、54 张表格、41 个图像元素、30 个含图页面和 80 个列表项。脱敏后的解析清单见 `knowledge/report-analysis.json`，逐页主题、摘要和证据引用见 `knowledge/report-page-index.json`。
 
 本仓库不公开 ALE 原始输出。原始结果包含报告正文和带时效签名的图片地址，这些内容不是开源知识图谱运行所必需的。
 
@@ -44,3 +44,9 @@
 - 法律、监管、标准和政府项目
 
 报告中的参考文献列表不能替代对当前一手来源的核验。
+
+## 当前市场资料
+
+岗位职责与报告薪酬样本见 `knowledge/jobs-and-compensation.md`，行业结构见 `knowledge/industry-and-market.md`。2026-08-09 核验的企业招聘样本单独维护在 `knowledge/compensation-market.json`，口径说明见 `knowledge/compensation-market.md`。
+
+市场资料优先使用企业招聘官网和官方 ATS。BOSS 直聘、猎聘等页面无法稳定直接读取时，只标记为搜索索引或交叉核验。所有招聘和薪酬事实都保留核验日期，不能从历史页面推断当前在招或公司统一薪档。

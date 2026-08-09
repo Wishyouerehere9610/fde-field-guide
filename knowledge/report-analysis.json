@@ -22,6 +22,11 @@
     },
     "publicationPolicy": "公开仓库不包含 ALE 原始解析结果、图片地址、签名参数和报告正文。"
   },
+  "publicKnowledge": {
+    "pageIndex": "knowledge/report-page-index.json",
+    "ontology": "knowledge/fde-insight.graph.json",
+    "market": "knowledge/compensation-market.json"
+  },
   "evidenceBundles": [
     {"id": "report:p3-6", "pages": [3, 6], "topics": ["报告定位", "核心结论", "研究边界"]},
     {"id": "report:p8-17", "pages": [8, 17], "topics": ["Demo 到生产", "80/95/99", "前线学习", "双向蒸馏"]},

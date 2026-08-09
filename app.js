@@ -17,6 +17,9 @@ const typeLabels = {
   asset: '资产',
   system: '系统',
   principle: '原则',
+  market: '市场',
+  'job-profile': '岗位',
+  compensation: '薪酬',
 };
 
 const relationLabels = {
@@ -30,6 +33,9 @@ const relationLabels = {
   precedes: '先于',
   enables: '支持',
   governs: '约束',
+  observed_in: '见于',
+  requires: '要求',
+  compared_with: '对比',
 };
 
 const overviewLanes = [
@@ -38,6 +44,7 @@ const overviewLanes = [
   { label: '交付阶段', types: ['stage'] },
   { label: '资产与交付物', types: ['asset', 'deliverable'] },
   { label: '指标与风险', types: ['metric', 'risk'] },
+  { label: '岗位与市场', types: ['job-profile', 'market', 'compensation'] },
 ];
 
 const curatedOverview = [
@@ -55,6 +62,8 @@ const curatedOverview = [
   'asset-connector',
   'risk-demo-trap',
   'risk-outsourcing-drift',
+  'job-profile-fde-core',
+  'compensation-china-fde-tiers-2026',
 ];
 
 let ontology = null;
@@ -150,7 +159,7 @@ function getPositions(nodes) {
       const gap = 300 / Math.max(laneNodes.length, 1);
       laneNodes.forEach((node, nodeIndex) => {
         positions.set(node.id, {
-          x: 76 + laneIndex * 152,
+          x: 64 + laneIndex * 126,
           y: 65 + gap / 2 + nodeIndex * gap,
         });
       });
@@ -239,7 +248,7 @@ function renderGraph() {
     overviewLanes.forEach((lane, index) => {
       const label = createSvgElement('text', {
         class: 'graph-lane-label',
-        x: 76 + index * 152,
+        x: 64 + index * 126,
         y: 28,
       });
       label.textContent = lane.label;

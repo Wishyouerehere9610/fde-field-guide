@@ -28,6 +28,9 @@ test('README documents Skill installation and GitHub Pages', async () => {
   assert.match(readme, /把客户现场的问题，变成可复用的产品能力/);
   assert.match(readme, /^## 安装 Skill$/mu);
   assert.match(readme, /^## 项目结构$/mu);
+  assert.match(readme, /岗位薪酬/);
+  assert.match(readme, /行业现状/);
+  assert.match(readme, /83 页逐页索引/);
   assert.doesNotMatch(readme, /^## (Use|Browse|Repository|Evidence|Development|License)/mu);
 });
 

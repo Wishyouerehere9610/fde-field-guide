@@ -70,5 +70,17 @@
     "prompt": "怎样避免 FDE 团队最后变成外包？",
     "mustInclude": ["资产收尾", "复用率", "产品反馈", "交付成本"],
     "mustAvoid": ["靠岗位改名", "只限制客户需求"]
+  },
+  {
+    "intent": "compensation",
+    "prompt": "腾讯、字节和 OpenAI 的 FDE 薪资怎么比较？",
+    "mustInclude": ["币种", "计薪周期", "薪数", "股权", "核验日期"],
+    "mustAvoid": ["直接按汇率比较总包", "把招聘区间当正式 Offer"]
+  },
+  {
+    "intent": "industry",
+    "prompt": "现在国内 FDE 行业发展到什么阶段？",
+    "mustInclude": ["岗位命名", "招聘主体", "生产结果", "产品回流"],
+    "mustAvoid": ["用单个职位推断行业", "无采集窗口的增长数字"]
   }
 ]

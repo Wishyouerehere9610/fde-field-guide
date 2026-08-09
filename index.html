@@ -26,6 +26,7 @@
         </a>
         <div class="nav-links">
           <a href="#method">方法</a>
+          <a href="#market">待遇</a>
           <a href="#delivery">交付</a>
           <a href="#measurement">评估</a>
           <a href="#install">安装 Skill</a>
@@ -55,11 +56,11 @@
               <dd>页报告覆盖</dd>
             </div>
             <div>
-              <dt>103</dt>
+              <dt>108</dt>
               <dd>个领域实体</dd>
             </div>
             <div>
-              <dt>128</dt>
+              <dt>138</dt>
               <dd>条语义关系</dd>
             </div>
           </dl>
@@ -81,6 +82,8 @@
             <button type="button" data-ontology-filter="mechanism" aria-pressed="false">机制</button>
             <button type="button" data-ontology-filter="asset" aria-pressed="false">资产</button>
             <button type="button" data-ontology-filter="risk" aria-pressed="false">风险</button>
+            <button type="button" data-ontology-filter="market" aria-pressed="false">市场</button>
+            <button type="button" data-ontology-filter="compensation" aria-pressed="false">薪酬</button>
           </div>
 
           <div class="ontology-visual">
@@ -112,20 +115,53 @@
             <div><dt>196</dt><dd>标题</dd></div>
             <div><dt>54</dt><dd>表格</dd></div>
             <div><dt>41</dt><dd>图像元素</dd></div>
-            <div><dt>10</dt><dd>实体类型</dd></div>
+            <div><dt>13</dt><dd>实体类型</dd></div>
           </dl>
           <div class="evidence-links">
             <a href="knowledge/fde-insight.schema.json">领域 Schema</a>
             <a href="knowledge/fde-insight.graph.json">知识图谱</a>
             <a href="knowledge/report-analysis.json">解析清单</a>
+            <a href="knowledge/report-page-index.json">逐页索引</a>
           </div>
+        </div>
+      </section>
+
+      <section class="market section-shell" id="market" aria-labelledby="market-heading">
+        <div class="market-heading reveal">
+          <div>
+            <p class="section-index">01 / 岗位与待遇</p>
+            <h2 id="market-heading">先看口径，再看数字</h2>
+          </div>
+          <p>国内招聘常用月薪和薪数，海外官网多披露年基薪。奖金、股权、房补和搬迁支持必须分开确认。</p>
+        </div>
+        <div class="market-ledger reveal">
+          <article>
+            <p>中国市场样本</p>
+            <h3>CNY 20K-80K / 月</h3>
+            <span>字节、腾讯、阿里云、蚂蚁、智谱公开职位</span>
+          </article>
+          <article>
+            <p>美国官网样本</p>
+            <h3>USD 110K-345K / 年</h3>
+            <span>OpenAI、Anthropic、Palantir 年基薪</span>
+          </article>
+          <article>
+            <p>核验窗口</p>
+            <h3>2026-08-09</h3>
+            <span>职位会下线，当前待遇需要重新查询</span>
+          </article>
+        </div>
+        <div class="market-links reveal">
+          <a href="https://github.com/Wishyouerehere9610/fde-insight/blob/main/knowledge/compensation-market.md">查看口径说明</a>
+          <a href="knowledge/compensation-market.json">读取结构化样本</a>
+          <a href="https://github.com/Wishyouerehere9610/fde-insight/blob/main/knowledge/industry-and-market.md">了解行业现状</a>
         </div>
       </section>
 
       <section class="definition section-shell" id="method">
         <div class="definition-statement reveal">
           <div class="definition-lead">
-            <p class="section-index">01 / 核心判断</p>
+            <p class="section-index">02 / 核心判断</p>
             <p>判断一项工作是不是 FDE，只看两件事。</p>
           </div>
           <h2><span>客户是否拿到生产结果，</span><span>团队是否留下可复用能力。</span></h2>
@@ -157,7 +193,7 @@
       <section class="lifecycle" id="delivery">
         <div class="section-shell">
           <div class="section-intro reveal">
-            <p class="section-index">02 / 交付链路</p>
+            <p class="section-index">03 / 交付链路</p>
             <h2>Demo 只是风险暴露的起点</h2>
             <p>生产价值来自一条完整链路。每个阶段都有退出证据，不能靠文档数量升级。</p>
           </div>
@@ -198,7 +234,7 @@
 
       <section class="operating section-shell">
         <div class="operating-copy reveal">
-          <p class="section-index">03 / 协作机制</p>
+          <p class="section-index">04 / 协作机制</p>
           <h2>现场执行和共性抽象，需要同时运转</h2>
           <p>Echo 与 Delta 是两种协作责任，不必固定成两个部门。一个把问题做成，一个判断哪些经验值得进入公共能力。</p>
         </div>
@@ -232,7 +268,7 @@
       <section class="measurement" id="measurement">
         <div class="section-shell measurement-shell">
           <div class="section-intro reveal">
-            <p class="section-index">04 / 价值评估</p>
+            <p class="section-index">05 / 价值评估</p>
             <h2>价值要同时看四层证据</h2>
             <p>调用量和模型分数只能解释局部。FDE 还要证明用户采用、生产可靠和下一次交付更快。</p>
           </div>

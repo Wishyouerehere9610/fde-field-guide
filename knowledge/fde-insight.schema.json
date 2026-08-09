@@ -49,7 +49,10 @@
         "metric",
         "risk",
         "asset",
-        "system"
+        "system",
+        "market",
+        "job-profile",
+        "compensation"
       ]
     },
     "relationType": {
@@ -64,7 +67,10 @@
         "reused_in",
         "precedes",
         "enables",
-        "governs"
+        "governs",
+        "observed_in",
+        "requires",
+        "compared_with"
       ]
     },
     "node": {
